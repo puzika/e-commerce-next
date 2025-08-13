@@ -1,0 +1,36 @@
+@use '@/colors';
+
+.search {
+  display: flex;
+  justify-content: flex-end;
+  width: 35rem;
+}
+
+.input {
+  width: 25rem;
+  font-size: 1.7rem;
+  font-family: inherit;
+  color: inherit;
+  background-color: colors.$clr-semi-transparent;
+  padding: 1rem 2rem;
+  outline: none;
+  border: none;
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+  transition: outline .2s, width .4s;
+
+  &:focus {
+    width: 100%;
+  }
+}
+
+.label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: colors.$clr-semi-transparent;
+  padding: 0 1rem;
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  margin-left: -.2rem;
+}

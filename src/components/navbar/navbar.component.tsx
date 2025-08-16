@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Logo from 'public/logo.svg';
 import Link from 'next/link';
+import CustomLink from '../custom-link/custom-link.component';
 import Search from '../search/search.component';
 import Favorite from '../favorite/favorite.component';
 import Cart from '../cart/cart,component';
@@ -18,10 +19,10 @@ export default function Navbar() {
         />
       </Link>
       <ul className={styles.list}>
-        <li className={styles.item}><a className={styles.link} href="#">Home</a></li>
-        <li className={styles.item}><a className={styles.link} href="#">Contact</a></li>
-        <li className={styles.item}><a className={styles.link} href="#">About</a></li>
-        <li className={styles.item}><a className={styles.link} href="#">Sign up</a></li>
+        <li className={styles.item}><CustomLink title={'Home'} href="#" /></li>
+        <li className={styles.item}><CustomLink title={'Contact'} href="#" /></li>
+        <li className={styles.item}><CustomLink title={'About'} href="#" /></li>
+        <li className={styles.item}><CustomLink title={'Sign up'} href="#" /></li>
       </ul>
       <div className={styles.right}>
         <Search name="search-products" placeholder='What are you looking for?' />

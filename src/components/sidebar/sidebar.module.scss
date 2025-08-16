@@ -1,0 +1,22 @@
+@use '@/variables';
+
+.sidebar {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 4rem;
+  width: 20rem;
+  border-right: variables.$separting-border;
+}
+
+.link {
+  &:link,
+  &:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  display: block;
+  padding: .5rem 0;
+}

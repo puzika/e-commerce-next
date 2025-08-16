@@ -17,9 +17,6 @@ export default function Search({ placeholder, name }: SearchProps) {
       <label className={styles.label} htmlFor={name}>
         <LuSearch />
       </label>
-      <IconContext.Provider value={{ size: "3rem"}}>
-        <GoHeart />
-      </IconContext.Provider>
     </form>
   )
 }

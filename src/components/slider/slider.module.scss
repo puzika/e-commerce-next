@@ -1,0 +1,20 @@
+@use '@/variables';
+
+.slider {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 45rem;
+  padding-top: variables.$primary-padding-top;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slideImage {
+  object-fit: cover;
+}

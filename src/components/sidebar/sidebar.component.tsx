@@ -3,7 +3,7 @@ import styles from './sidebar.module.scss'
 
 export default function Sidebar() {
   return  (
-    <nav>
+    <nav className={styles.nav}>
       <ul className={styles.sidebar}>
         <li className={styles.item}><CustomLink title={"Women's fashion"} href={'#'}/></li>
         <li className={styles.item}><CustomLink title={"Men's fashion"} href={'#'} /></li>

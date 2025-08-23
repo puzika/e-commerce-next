@@ -1,0 +1,20 @@
+@use 'sass:color';
+@use '@/colors';
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.5rem;
+  aspect-ratio: 1;
+  background-color: colors.$clr-semi-transparent;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color .2s;
+
+  &:hover {
+    background-color: color.adjust(colors.$clr-semi-transparent, $lightness: -10%);
+  }
+}

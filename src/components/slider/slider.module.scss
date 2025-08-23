@@ -13,11 +13,60 @@
 .slide {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: calc(100% - variables.$primary-padding-top);
   transition: translate .5s;
 }
 
+.slideText {
+  position: absolute;
+  top: 5rem;
+  left: 8rem;
+  bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  width: 45rem;
+  color: colors.$clr-base;
+}
+
+.slideTitle {
+  margin-bottom: 2rem;
+}
+
+.slideSlogan {
+  font-size: 6rem;
+  text-transform: capitalize;
+}
+
+.link {
+  &:link,
+  &:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  align-self: flex-start;
+  display: flex;
+  gap: 1.5rem;
+  font-size: 2.5rem;
+  padding: .5rem;
+  border-bottom-width: .1rem;
+  border-bottom-style: solid;
+  border-bottom-color: inherit;
+  margin-top: auto;
+  transition: translate .2s;
+
+  &:hover {
+    translate: 0 -.25rem;
+  }
+
+  &:active {
+    translate: 0 0;
+  }
+}
+
 .slideImage {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 

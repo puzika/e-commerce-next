@@ -4,7 +4,7 @@ import { useState } from 'react';
 import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import Link from 'next/link';
-import slides from '@/slides';
+import slides from '@/lib/slides';
 import styles from './slider.module.scss';
 
 type SlideProps = {
@@ -34,6 +34,7 @@ function Slide({ pos, image, alt, priority, title, slogan }: SlideProps) {
         className={styles.slideImage}
         src={image}
         alt={alt}
+        fill
         priority={!!priority}
       />
     </div>

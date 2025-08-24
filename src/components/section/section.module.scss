@@ -42,16 +42,3 @@
   text-transform: capitalize;
   margin-right: auto;
 }
-
-.slider {
-  display: flex;
-  gap: 3rem;
-  overflow: hidden;
-}
-
-.slide {
-  aspect-ratio: 1.2;
-  flex: 1 0 calc((100% - 3 * 5rem) / 6);
-  border: variables.$separating-border;
-  border-radius: .5rem;
-}

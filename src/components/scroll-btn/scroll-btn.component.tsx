@@ -26,7 +26,7 @@ export default function ScrollBtn({ direction, handler }: ScrollBtnProps) {
   }
 
   return (
-    <button onClick={() => {}} className={styles.btn}>
+    <button onClick={handler} className={styles.btn}>
       <IconContext value={{ size: "2.5rem" }}>
         { icons[direction] }
       </IconContext>

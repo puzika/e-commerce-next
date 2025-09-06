@@ -1,0 +1,19 @@
+@use '@/colors';
+
+.btn {
+  font-size: inherit;
+  font-family: inherit;
+  color: colors.$clr-base;
+  text-transform: capitalize;
+  background-color: colors.$clr-primary;
+  padding: 1.6rem 4.8rem;
+  border: none;
+  border-radius: .5rem;
+  outline: none;
+  cursor: pointer;
+  transition: background-color .2s;
+
+  &:hover {
+    background-color: colors.$clr-primary-lt;
+  }
+}

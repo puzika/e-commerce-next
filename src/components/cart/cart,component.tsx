@@ -2,12 +2,12 @@
 
 import { IconContext } from 'react-icons';
 import { IoCartOutline } from 'react-icons/io5';
-import styles from './cart.module.scss';
+import type { IconProps } from '@/lib/definitions';
 
-export default function Cart() {
+export default function Cart({ size }: IconProps) {
   return (
-    <IconContext.Provider value={{ size: '3.5rem' }}>
-      <IoCartOutline className={styles.cart} />
+    <IconContext.Provider value={{ size: `${size}rem` }}>
+      <IoCartOutline />
     </IconContext.Provider>
   )
 }

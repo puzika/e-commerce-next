@@ -1,0 +1,12 @@
+@use '@/colors';
+
+.star {
+  width: 2.5rem;
+  aspect-ratio: 1;
+  clip-path: polygon(50% 0, 65% 33%, 100% 33%, 75% 62%, 85% 100%, 50% 80%, 15% 100%, 25% 62%, 0 33%, 35% 33%, 50% 0);
+}
+
+.stars {
+  display: flex;
+  gap: .5rem;
+}

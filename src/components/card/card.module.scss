@@ -1,0 +1,49 @@
+@use '@/colors';
+
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: colors.$clr-semi-transparent;
+  border-radius: 1rem;
+  margin-bottom: .5rem;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: colors.$clr-secondary-lts;
+  font-size: 1.8rem;
+}
+
+.price {
+  color: colors.$clr-primary;
+}
+
+.favorite {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 4rem;
+  aspect-ratio: 1;
+  background-color: colors.$clr-base;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+}

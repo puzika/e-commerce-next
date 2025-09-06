@@ -1,0 +1,55 @@
+@use '@/colors';
+
+.skeleton {
+  position: relative;
+
+  & > * {
+    background-color: colors.$clr-semi-transparent;
+    border-radius: 1rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: 200% 100%;
+    background-image: linear-gradient(
+      to right,
+      transparent 10%,
+      colors.$clr-base 50%,
+      transparent 60%
+    );
+    background-position-x: 200%;
+    animation: 1.2s shimmering linear infinite;
+  }
+}
+
+.skeletonImage {
+  aspect-ratio: 1;
+  margin-bottom: .5rem;
+}
+
+.skeletonTitle,
+.skeletonPrice,
+.skeletonRating {
+  height: 2rem;
+}
+
+.skeletonTitle {
+  width: 60%;
+}
+
+.skeletonPrice {
+  width: 40%;
+}
+
+.skeletonRating {
+  width: 50%;
+}
+
+@keyframes shimmering {
+  to {
+    background-position-x: 0;
+  }
+}

@@ -26,8 +26,8 @@ export default function Navbar() {
       </ul>
       <div className={styles.right}>
         <Search name="search-products" placeholder='What are you looking for?' />
-        <Favorite />
-        <Cart />
+        <button aria-label='favorites' className={styles.iconBtn}><Favorite size={3} /></button>
+        <button aria-label='cart' className={styles.iconBtn}><Cart size={3} /></button>
       </div>
     </nav>
   )

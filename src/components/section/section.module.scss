@@ -34,11 +34,12 @@
 
 .horizontal {
   display: flex;
+  align-items: center;
   margin-bottom: 6rem;
 }
 
 .heading {
-  font-size: 3rem;
+  font-size: 3.5rem;
   text-transform: capitalize;
   margin-right: auto;
 }

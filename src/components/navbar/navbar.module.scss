@@ -27,3 +27,15 @@
   justify-content: flex-end;
   gap: 2rem;
 }
+
+.iconBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0 .5rem;
+  cursor: pointer;
+}

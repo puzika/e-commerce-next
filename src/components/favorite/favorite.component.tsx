@@ -2,19 +2,15 @@
 
 import { IconContext } from "react-icons"
 import { GoHeart, GoHeartFill } from "react-icons/go"
-import styles from './favorite.module.scss'
+import { IconProps } from "@/lib/definitions";
 
-type FavoriteProps = {
-  fill?: boolean,
-}
-
-export default function Favorite({ fill }: FavoriteProps) {
+export default function Favorite({ fill, size }: IconProps) {
   return (
-    <IconContext.Provider value={{size: '3.5rem'}}>
+    <IconContext.Provider value={{size: `${size}rem`}}>
       {
         fill ? 
-          <GoHeartFill className={styles.favorite} /> : 
-          <GoHeart className={styles.favorite} /> 
+          <GoHeartFill /> : 
+          <GoHeart /> 
       }
     </IconContext.Provider>
   )

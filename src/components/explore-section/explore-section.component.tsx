@@ -7,6 +7,7 @@ import ScrollBtnGroup from '../scroll-btn-group/scroll-btn-group.component';
 import CardSkeleton from '../card-skeleton/card-skeleton.component';
 import Card from '../card/card.component';
 import Button from '../button/button.component';
+import Link from 'next/link';
 import { getProducts } from '@/lib/data';
 import styles from './explore-section.module.scss';
 
@@ -68,7 +69,9 @@ export default function ExploreSection() {
           { cards }
         </div>
       </div>
-      <Button title='view all products' />
+      <Button>
+        <Link href="#">view all products</Link>
+      </Button>
     </Section>
   )
 }

@@ -18,3 +18,9 @@ body {
   font-family: 'Times New Roman', Times, serif;
   padding-bottom: 10rem;
 }
+
+a:link,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}

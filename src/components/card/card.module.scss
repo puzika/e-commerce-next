@@ -1,13 +1,5 @@
 @use '@/colors';
 
-.card {
-  &:link,
-  &:visited {
-    color: inherit;
-    text-decoration: none;
-  }
-}
-
 .imageWrapper {
   position: relative;
   width: 100%;
@@ -47,4 +39,12 @@
   border-radius: 50%;
   outline: none;
   cursor: pointer;
+}
+
+.title {
+  transition: color .2s;
+
+  &:hover {
+    color: colors.$clr-primary;
+  }
 }

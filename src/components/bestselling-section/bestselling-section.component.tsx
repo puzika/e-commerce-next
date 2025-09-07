@@ -2,6 +2,7 @@ import Section from '../section/section.component';
 import Button from '../button/button.component';
 import CardSkeleton from '../card-skeleton/card-skeleton.component';
 import Card from '../card/card.component';
+import Link from 'next/link';
 import { Suspense } from 'react';
 import { getProducts } from '@/lib/data';
 import type { Product } from '@/lib/definitions';
@@ -44,7 +45,11 @@ export default function BestSellingSection() {
     <Section 
       title="This month"
       heading="Best selling products"
-      action={<Button title="View all" />}
+      action={
+        <Button>
+          <Link href="#">View all</Link>
+        </Button>
+      }
     >
       <Suspense fallback={<BestSellingSkeleton />}>
         <BestSellingProducts />

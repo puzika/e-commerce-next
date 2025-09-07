@@ -1,14 +1,15 @@
+import type { ReactNode } from 'react';
 import styles from './button.module.scss';
 
 type ButtonProps = {
-  title: string,
+  children: ReactNode,
   handler?: () => void,
 }
 
-export default function Button({ title, handler}: ButtonProps) {
+export default function Button({ children, handler}: ButtonProps) {
   return (
     <button onClick={handler} className={styles.btn}>
-      { title }
+      { children }
     </button>
   )
 }

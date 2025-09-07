@@ -14,7 +14,7 @@ type CardProps = {
 
 export default function Card({ thumbnail, title, price, rating }: CardProps) {
   return (
-    <Link href="#" className={`${sharedStyles.card} ${styles.card}`}>
+    <div className={sharedStyles.card}>
       <div className={styles.imageWrapper}>
         <Image
           src={thumbnail}
@@ -27,12 +27,12 @@ export default function Card({ thumbnail, title, price, rating }: CardProps) {
           <Favorite size={2.5} />
         </button>
       </div>
-      <p>{title}</p>
+      <Link className={styles.title} href="#">{title}</Link>
       <p className={styles.price}>${price}</p>
       <div className={styles.rating}>
         <Stars rating={rating} />
         <span>({rating})</span>
       </div>
-    </Link>
+    </div>
   )
 }

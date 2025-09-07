@@ -26,6 +26,7 @@ export default function Card({ thumbnail, title, price, rating }: CardProps) {
         <button aria-label='Add to favorites' className={styles.favorite}>
           <Favorite size={2.5} />
         </button>
+        <button className={styles.btn}>Add to card</button>
       </div>
       <Link className={styles.title} href="#">{title}</Link>
       <p className={styles.price}>${price}</p>

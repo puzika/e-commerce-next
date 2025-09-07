@@ -3,12 +3,12 @@ import Button from '../button/button.component';
 import CardSkeleton from '../card-skeleton/card-skeleton.component';
 import Card from '../card/card.component';
 import { Suspense } from 'react';
-import { getBestSelling } from '@/lib/data';
+import { getProducts } from '@/lib/data';
 import type { Product } from '@/lib/definitions';
 import styles from './bestselling-section.module.scss';
 
 async function BestSellingProducts() {
-  const products = (await getBestSelling()).products as Product[];
+  const products = (await getProducts(4)).products;
 
   return(
     <div className={styles.cards}>

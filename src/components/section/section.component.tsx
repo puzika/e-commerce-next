@@ -16,7 +16,9 @@ export default function Section({ title, heading, action, children }: SectionPro
         <h3 className={styles.heading}>{heading}</h3>
         { action }
       </div>
-      { children }
+      <div className={styles.content}>
+        { children }
+      </div>
     </section>
   )
 }

@@ -68,6 +68,7 @@ export default function Slider({ priority }: Slider) {
           slides.map((_, idx) => (
             <button
               key={`slider-btn-${idx}`}
+              aria-label='Slider control buttons'
               className={`${styles.btn} ${idx === currSlide ? styles.btnActive : ''}`}
               onClick={() => setCurrSlide(idx)}
             >

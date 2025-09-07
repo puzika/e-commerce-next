@@ -1,0 +1,14 @@
+.productsWrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.products {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-columns: calc((100% - 3 * 3rem) / 4);
+  row-gap: 5rem;
+  column-gap: 3rem;
+  transition: translate .5s;
+}

@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Section from '../section/section.component';
-import ScrollBtn from '../scroll-btn/scroll-btn.component';
 import Link from 'next/link';
+import ScrollBtnGroup from '../scroll-btn-group/scroll-btn-group.component';
 import categoryIcons from '@/lib/categories';
 import { IconContext } from 'react-icons';
 import styles from './categories-section.module.scss';
@@ -41,18 +41,11 @@ export default function CategoriesSection() {
     }
   }
 
-  const action = (
-    <div className={styles.scrollBtnGroup}>
-      <ScrollBtn direction='left' handler={handleScrollLeft} />
-      <ScrollBtn direction='right' handler={handleScrollRight} />
-    </div>
-  )
-
   return (
     <Section 
       title="categories" 
       heading="browse by category" 
-      action={action}
+      action={<ScrollBtnGroup handleScrollLeft={handleScrollLeft} handleScrollRight={handleScrollRight} />}
     >
       <div className={styles.sliderWrapper}>
         <div style={{ translate: `calc(-${currStartSlide} * ((100% - 3 * 5rem) / 6 + 3rem)) 0`}} className={styles.slider}>

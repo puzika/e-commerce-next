@@ -1,7 +1,9 @@
 import Image from 'next/image';
 import Stars from '../stars/stars.component';
 import Favorite from '../favorite/favorite.component';
+import Link from 'next/link';
 import styles from './card.module.scss';
+import sharedStyles from '@/shared-styles/card.module.scss';
 
 type CardProps = {
   thumbnail: string,
@@ -12,7 +14,7 @@ type CardProps = {
 
 export default function Card({ thumbnail, title, price, rating }: CardProps) {
   return (
-    <div className={styles.card}>
+    <Link href="#" className={`${sharedStyles.card} ${styles.card}`}>
       <div className={styles.imageWrapper}>
         <Image
           src={thumbnail}
@@ -25,12 +27,12 @@ export default function Card({ thumbnail, title, price, rating }: CardProps) {
           <Favorite size={2.5} />
         </button>
       </div>
-      <div>{title}</div>
-      <div className={styles.price}>${price}</div>
+      <p>{title}</p>
+      <p className={styles.price}>${price}</p>
       <div className={styles.rating}>
         <Stars rating={rating} />
         <span>({rating})</span>
       </div>
-    </div>
+    </Link>
   )
 }

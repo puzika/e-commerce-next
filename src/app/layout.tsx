@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Navbar from "@/components/navbar/navbar.component";
+import Footer from "@/components/footer/footer.component";
 import '@/global.scss';
 import styles from './layout.module.scss';
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <div className={styles.wrapper}>
           {children}
         </div>
+        <Footer />
       </body>
     </html>
   )

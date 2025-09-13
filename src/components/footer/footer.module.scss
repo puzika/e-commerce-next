@@ -1,0 +1,23 @@
+@use '@/colors';
+@use '@/variables';
+
+.footer {
+  min-height: 20rem;
+  background-color: colors.$clr-secondary;
+  padding: 10rem variables.$primary-padding-horizontal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  color: colors.$clr-base;
+}
+
+.list {
+  display: flex;
+  gap: 3rem;
+}
+
+.copyright {
+  margin-top: 5rem;
+  font-size: 1.8rem;
+}

@@ -1,0 +1,28 @@
+@use '@/colors';
+
+.socialMedia {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.socialMediaLink {
+  &:link,
+  &:visited {
+    color: colors.$clr-base;
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  aspect-ratio: 1;
+  border: .2rem solid colors.$clr-base;
+  border-radius: 50%;
+  transition: all .2s;
+
+  &:hover {
+    color: colors.$clr-secondary;
+    background-color: colors.$clr-base;
+  }
+}

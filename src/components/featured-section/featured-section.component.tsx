@@ -5,6 +5,13 @@ import banners from "@/lib/featured-banners";
 import styles from './featured-section.module.scss';
 
 export default function FeaturedSection() {
+  const sizes = [
+    "(min-width: 340px) calc(50vw - 135px), 30px",
+    "(min-width: 340px) calc(50vw - 135px), 30px",
+    "calc(25vw - 82px)",
+    "calc(25vw - 82px)",
+  ];
+
   return (
     <Section
       title="featured"
@@ -27,6 +34,7 @@ export default function FeaturedSection() {
                 title={title}
                 fill
                 alt={alt}
+                sizes={sizes[idx]}
               />
             </div>
           ))

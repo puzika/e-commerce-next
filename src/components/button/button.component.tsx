@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import styles from './button.module.scss';
 
 type ButtonProps = {
-  children: ReactNode,
+  children?: ReactNode,
   handler?: () => void,
 }
 

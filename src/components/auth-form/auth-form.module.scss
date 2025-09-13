@@ -1,0 +1,34 @@
+@use "@/colors";
+
+.form {
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  & > input {
+    font-size: inherit;
+    color: inherit;
+    padding: .8rem .2rem;
+    border: none;
+    border-bottom: .1rem solid colors.$clr-secondary;
+    outline: none;
+    
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+}
+
+.header {
+  margin-bottom: .8rem;
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 2.4rem;
+}
+
+.subheading {
+  font-size: 1.8rem;
+}

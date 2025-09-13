@@ -1,0 +1,25 @@
+@use "@/colors";
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.alternatives {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.alternative {
+  padding: .5rem 0;
+  border-bottom: .1rem solid colors.$clr-secondary;
+  transition: color .2s;
+
+  &:hover {
+    color: colors.$clr-primary;
+    border-bottom-color: colors.$clr-primary;
+  }
+}

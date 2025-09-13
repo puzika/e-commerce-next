@@ -19,10 +19,10 @@ export default function Navbar() {
         />
       </Link>
       <ul className={styles.list}>
-        <li className={styles.item}><CustomLink title={'Home'} href="#" /></li>
+        <li className={styles.item}><CustomLink title={'Home'} href="/" /></li>
         <li className={styles.item}><CustomLink title={'Contact'} href="#" /></li>
         <li className={styles.item}><CustomLink title={'About'} href="#" /></li>
-        <li className={styles.item}><CustomLink title={'Sign up'} href="#" /></li>
+        <li className={styles.item}><CustomLink title={'Sign up'} href="sign-up" /></li>
       </ul>
       <div className={styles.right}>
         <Search name="search-products" placeholder='What are you looking for?' />

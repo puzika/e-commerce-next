@@ -1,0 +1,23 @@
+@use "@/colors";
+
+.googleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  background-color: transparent;
+  padding: 1.6rem 4.8rem;
+  border: .1rem solid colors.$clr-secondary;
+  border-radius: .5rem;
+  outline: none;
+  cursor: pointer;
+  transition: all .2s;
+
+  &:hover {
+    background-color: colors.$clr-secondary;
+    color: colors.$clr-base;
+  }
+}

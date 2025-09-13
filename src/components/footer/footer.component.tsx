@@ -17,10 +17,10 @@ export default function Footer() {
       </Link>
       <nav>
         <ul className={styles.list}>
-          <li><CustomLink href="#" title={"Home"} /></li>
+          <li><CustomLink href="/" title={"Home"} /></li>
           <li><CustomLink href="#" title={"Contact"} /></li>
           <li><CustomLink href="#" title={"About"} /></li>
-          <li><CustomLink href="#" title={"Sign up"} /></li>
+          <li><CustomLink href="sign-up" title={"Sign up"} /></li>
           <li><CustomLink href="#" title={"Categories"} /></li>
         </ul>
       </nav>

@@ -1,0 +1,14 @@
+@use "@/colors";
+
+.circleIcon {
+  position: relative;
+  color: colors.$clr-base;
+  background-color: colors.$clr-secondary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8.2rem;
+  aspect-ratio: 1;
+  border: 1.2rem solid rgba(255, 255, 255, .7);
+  border-radius: 50%;
+}

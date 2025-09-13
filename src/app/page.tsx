@@ -4,6 +4,7 @@ import CategoriesSection from "@/components/categories-section/categories-sectio
 import BestSellingSection from "@/components/bestselling-section/bestselling-section.component";
 import ExploreSection from "@/components/explore-section/explore-section.component";
 import FeaturedSection from "@/components/featured-section/featured-section.component";
+import Services from "@/components/services/services.component";
 import styles from './page.module.scss';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <BestSellingSection />
       <ExploreSection />
       <FeaturedSection />
+      <Services />
     </>
   )
 }

@@ -1,0 +1,1 @@
+export const circleIconSize = 4;

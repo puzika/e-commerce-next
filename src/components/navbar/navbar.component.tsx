@@ -10,17 +10,19 @@ import styles from './navbar.module.scss';
 export default function Navbar() {
   return (
     <nav className={styles.navbar}>
-      <Link className={styles.logo} href={'/'}>
-        <Image 
-          src={Logo} 
-          alt={'Logo'}
-          width="120"
-          priority
-        />
-      </Link>
+      <h1>
+        <Link className={styles.logo} href={'/'}>
+          <Image 
+            src={Logo} 
+            alt={'Exclusive: All in one commerce platform'}
+            width="120"
+            priority
+          />
+        </Link>
+      </h1>
       <ul className={styles.list}>
         <li className={styles.item}><CustomLink title={'Home'} href="/" /></li>
-        <li className={styles.item}><CustomLink title={'Contact'} href="#" /></li>
+        <li className={styles.item}><CustomLink title={'Contact'} href="contact" /></li>
         <li className={styles.item}><CustomLink title={'About'} href="#" /></li>
         <li className={styles.item}><CustomLink title={'Sign up'} href="sign-up" /></li>
       </ul>

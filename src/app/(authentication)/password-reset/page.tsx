@@ -9,7 +9,7 @@ export default function PasswordReset() {
       title="Recover Password"
       subheading="Receive account recovery link on your email"
     >
-      <input type="email" placeholder="Email" />
+      <input type="email" name="email" placeholder="Email" />
       <Button>Send</Button>
       <div className={styles.alternatives}>
         <CustomLink href="sign-up" title="Sign up" />

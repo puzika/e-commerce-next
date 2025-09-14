@@ -1,0 +1,110 @@
+@use "@/colors";
+
+.container {
+  display: flex;
+  gap: 3rem;
+  padding: 10rem 0;
+
+  & > * {
+    padding: 4rem 3.5rem;
+    border-radius: .5rem;
+    box-shadow: 0 0 1rem rgba(colors.$clr-secondary-lts, .2);
+  }
+}
+
+.options {
+  width: 35rem;
+  padding: .5rem 3rem;
+  font-size: 1.8rem;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3.5rem 0;
+
+  &:not(:last-child) {
+    border-bottom: .1rem solid colors.$clr-secondary;
+  }
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: .5rem;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.5rem;
+  aspect-ratio: 1;
+  color: colors.$clr-base;
+  font-size: 2.5rem;
+  background-color: colors.$clr-primary;
+  border-radius: 50%;
+}
+
+.form {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: max-content 1fr max-content; 
+  grid-template-areas: 
+    "name email phone"
+    "message message message"
+    ". . btn";
+  column-gap: 1.5rem;
+  row-gap: 3rem;
+
+  & > input:required::placeholder {
+    width: max-content;
+    color: transparent;
+    background-image: linear-gradient(
+      to right, 
+      colors.$clr-secondary-lts calc(100% - 1rem), 
+      colors.$clr-primary calc(100% - 1rem)
+    );
+    background-clip: text;
+  }
+}
+
+.name {
+  grid-area: name;
+}
+
+.email {
+  grid-area: email;
+}
+
+.phone {
+  grid-area: phone;
+}
+
+.message {
+  grid-area: message;
+}
+
+.btn {
+  grid-area: btn;
+  justify-self: end;
+}
+
+.input,
+.textarea {
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  background-color: colors.$clr-semi-transparent;
+  padding: 1.5rem;
+  border: none;
+  border-radius: .5rem;
+  outline: none;
+}
+
+.textarea {
+  resize: none;
+}

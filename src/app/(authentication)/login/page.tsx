@@ -9,8 +9,8 @@ export default function Login() {
       title="Log in to Exclusive"
       subheading="Enter your details below"
     >
-      <input type="email" placeholder="Email" />
-      <input type="password" placeholder="Password" />
+      <input type="email" name="email" placeholder="Email" />
+      <input type="password" name="password" placeholder="Password" />
       <div className={styles.btns}>
         <Button>Log in</Button>
         <CustomLink title="Forgot Password?" href="password-reset" />

@@ -19,7 +19,7 @@ export default function SignUp() {
       </div>
       <div className={styles.alternatives}>
         <p>Already have an account?</p>
-        <Link className={styles.alternative} href="#">Log in</Link>
+        <Link className={styles.alternative} href="login">Log in</Link>
       </div>
     </AuthForm>
   )

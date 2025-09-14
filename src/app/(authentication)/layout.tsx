@@ -1,7 +1,7 @@
 import type { ReactNode } from "react"
 import Image from "next/image"
 import AuthImage from 'public/authentication.png'
-import styles from './authentication.module.scss'
+import styles from './layout.module.scss';
 
 type AuthenticationLayoutProps = {
   children?: ReactNode,

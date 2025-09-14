@@ -1,0 +1,13 @@
+@use "@/colors";
+
+.alternatives {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  color: colors.$clr-primary;
+}
+
+.conjunction {
+  color: colors.$clr-secondary;
+}

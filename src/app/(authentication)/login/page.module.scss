@@ -1,0 +1,8 @@
+@use "@/colors";
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: colors.$clr-primary;
+}

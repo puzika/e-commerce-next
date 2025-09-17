@@ -19,7 +19,7 @@ export default function Footer() {
         <ul className={styles.list}>
           <li><CustomLink href="/" title={"Home"} /></li>
           <li><CustomLink href="contact" title={"Contact"} /></li>
-          <li><CustomLink href="#" title={"About"} /></li>
+          <li><CustomLink href="about" title={"About"} /></li>
           <li><CustomLink href="sign-up" title={"Sign up"} /></li>
           <li><CustomLink href="#" title={"Categories"} /></li>
         </ul>

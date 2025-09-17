@@ -1,0 +1,41 @@
+@use "@/variables";
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 8.5rem;
+  margin: 10rem 0;
+
+  & > * {
+    flex: 1;
+  }
+}
+
+.storyHeading {
+  font-size: 4.5rem;
+  margin-bottom: 3.5rem;
+  text-transform: capitalize;
+}
+
+.storyText {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.storyImg {
+  position: relative;
+  aspect-ratio: 235 / 203;
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+
+  & > * {
+    flex: 1;
+  }
+}

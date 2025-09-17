@@ -1,10 +1,8 @@
-'use client';
-
 import type { ReactNode } from 'react';
 import styles from './circle-icon.module.scss';
 
 type CircleIconProps = {
-  icon: ReactNode
+  icon: ReactNode,
 }
 
 export default function CircleIcon({ icon }: CircleIconProps) {

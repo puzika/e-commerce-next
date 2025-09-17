@@ -23,7 +23,7 @@ export default function Navbar() {
       <ul className={styles.list}>
         <li className={styles.item}><CustomLink title={'Home'} href="/" /></li>
         <li className={styles.item}><CustomLink title={'Contact'} href="contact" /></li>
-        <li className={styles.item}><CustomLink title={'About'} href="#" /></li>
+        <li className={styles.item}><CustomLink title={'About'} href="about" /></li>
         <li className={styles.item}><CustomLink title={'Sign up'} href="sign-up" /></li>
       </ul>
       <div className={styles.right}>

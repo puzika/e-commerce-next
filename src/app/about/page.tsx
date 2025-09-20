@@ -2,6 +2,7 @@ import Image from "next/image"
 import AboutImg from 'public/about.png'
 import Services from "@/components/services/services.component"
 import StatCard from "@/components/stat-card/stat-card.component"
+import Staff from "@/components/staff/staff.component"
 import { AiOutlineShop } from "react-icons/ai"
 import { AiOutlineDollar } from "react-icons/ai"
 import { IoBagHandleOutline } from "react-icons/io5"
@@ -38,6 +39,7 @@ export default function About() {
         <StatCard icon={<IoBagHandleOutline />} stat="45.5k" description="Customer active on our site" />
         <StatCard icon={<TbMoneybag />} stat="25k" description="Anual gross sale on our site" />
       </div>
+      <Staff />
       <Services />
     </>
   )

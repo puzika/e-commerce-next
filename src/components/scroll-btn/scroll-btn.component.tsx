@@ -1,5 +1,3 @@
-'use client';
-
 import { 
   GoArrowLeft, 
   GoArrowRight, 
@@ -7,17 +5,17 @@ import {
   GoArrowDown 
 } from 'react-icons/go';
 import type { ReactNode } from 'react';
-import { IconContext } from 'react-icons';
 import styles from './scroll-btn.module.scss';
 
 type Direction = 'up' | 'down' | 'left' | 'right';
 
 type ScrollBtnProps = {
   direction: Direction,
+  size?: number,
   handler: () => void,
 }
 
-export default function ScrollBtn({ direction, handler }: ScrollBtnProps) {
+export default function ScrollBtn({ direction, handler, size }: ScrollBtnProps) {
   const icons: Record<Direction, ReactNode> = {
     up: <GoArrowUp />,
     down: <GoArrowDown />,
@@ -26,10 +24,16 @@ export default function ScrollBtn({ direction, handler }: ScrollBtnProps) {
   }
 
   return (
-    <button aria-label={`Scroll ${direction}`} onClick={handler} className={styles.btn}>
-      <IconContext value={{ size: "2.5rem" }}>
-        { icons[direction] }
-      </IconContext>
+    <button 
+      className={styles.btn}
+      style={{ 
+        fontSize: `${size ?? 2.5}rem`,
+        width: `${(size ?? 2.5) + 2}rem`
+      }}
+      aria-label={`Scroll ${direction}`} 
+      onClick={handler} 
+    >
+      { icons[direction] }
     </button>
   )
 }

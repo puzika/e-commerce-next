@@ -1,3 +1,5 @@
+import type { StaticImport } from "next/dist/shared/lib/get-img-props";
+
 export type FetchOptions = {
   cache?: 'force-cache' | 'no-store',
   next?: {

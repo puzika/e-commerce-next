@@ -21,7 +21,7 @@ export default function Footer() {
           <li><CustomLink href="contact" title={"Contact"} /></li>
           <li><CustomLink href="about" title={"About"} /></li>
           <li><CustomLink href="sign-up" title={"Sign up"} /></li>
-          <li><CustomLink href="#" title={"Categories"} /></li>
+          <li><CustomLink href="/categories" title={"Categories"} /></li>
         </ul>
       </nav>
       <SocialMedia />

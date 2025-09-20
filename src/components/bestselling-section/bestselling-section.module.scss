@@ -2,4 +2,8 @@
   display: flex;
   width: 100%;
   gap: 3rem;
+
+  & > * {
+    flex: 1;
+  }
 }

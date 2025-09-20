@@ -1,9 +1,5 @@
-'use client';
-
 import styles from './search.module.scss';
 import { LuSearch } from 'react-icons/lu';
-import { GoHeart } from 'react-icons/go';
-import { IconContext } from 'react-icons';
 
 type SearchProps = {
   placeholder?: string,

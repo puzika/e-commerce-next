@@ -8,27 +8,16 @@ import { LiaCouchSolid } from 'react-icons/lia';
 import { SlHandbag } from 'react-icons/sl';
 import { IoShirtOutline } from 'react-icons/io5';
 
-type Category = 
-  | "smartphones"
-  | "laptops"
-  | "mens-watches"
-  | "sunglasses"
-  | "fragrances"
-  | "kitchen-accessories"
-  | "furniture"
-  | "womens-bags"
-  | "mens-shirts"
+const categories: { category: string, icon: ReactNode }[] = [
+  { category: "smartphones", icon: <MdOutlinePhoneAndroid />},
+  { category: "laptops", icon: <IoMdLaptop />},
+  { category: "mens-watches", icon: <GiWatch />},
+  { category: "sunglasses", icon: <FaGlasses />},
+  { category: "fragrances", icon: <TbPerfume />},
+  { category: "kitchen-accessories", icon: <TbToolsKitchen />},
+  { category: "furniture", icon: <LiaCouchSolid />},
+  { category: "womens-bags", icon: <SlHandbag />},
+  { category: "mens-shirts", icon: <IoShirtOutline />},
+];
 
-const categoryIcons: Record<Category, ReactNode> = {
-  "smartphones": <MdOutlinePhoneAndroid />,
-  "laptops": <IoMdLaptop />,
-  "mens-watches": <GiWatch />,
-  "sunglasses": <FaGlasses />,
-  "fragrances": <TbPerfume/>,
-  "kitchen-accessories": <TbToolsKitchen />,
-  "furniture": <LiaCouchSolid />,
-  "womens-bags": <SlHandbag />,
-  "mens-shirts": <IoShirtOutline />,
-}
-
-export default categoryIcons;
+export default categories;

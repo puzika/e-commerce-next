@@ -19,7 +19,6 @@
 
 .slide {
   aspect-ratio: 1.2;
-  flex: 1 0 calc((100% - 3 * 5rem) / 6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,4 +46,8 @@
   font-size: 1.8rem;
   text-transform: capitalize;
   text-align: center;
+}
+
+.iconWrapper {
+  font-size: 4rem;
 }

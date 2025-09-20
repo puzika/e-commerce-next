@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Stars from '../stars/stars.component';
-import Favorite from '../favorite/favorite.component';
+import { GoHeart } from 'react-icons/go';
 import Link from 'next/link';
 import styles from './card.module.scss';
 import sharedStyles from '@/shared-styles/card.module.scss';
@@ -24,7 +24,7 @@ export default function Card({ thumbnail, title, price, rating }: CardProps) {
           className={styles.image}
         />
         <button aria-label='Add to favorites' className={styles.favorite}>
-          <Favorite size={2.5} />
+          <GoHeart />
         </button>
         <button className={styles.btn}>Add to card</button>
       </div>

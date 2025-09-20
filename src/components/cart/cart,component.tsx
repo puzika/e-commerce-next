@@ -1,13 +1,11 @@
-'use client';
-
-import { IconContext } from 'react-icons';
 import { IoCartOutline } from 'react-icons/io5';
 import type { IconProps } from '@/lib/definitions';
+import styles from './cart.module.scss';
 
 export default function Cart({ size }: IconProps) {
   return (
-    <IconContext.Provider value={{ size: `${size}rem` }}>
+    <div className={styles.icon} style={{ fontSize: `${size}rem` }}>
       <IoCartOutline />
-    </IconContext.Provider>
+    </div>
   )
 }

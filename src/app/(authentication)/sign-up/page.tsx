@@ -4,7 +4,7 @@ import GoogleBtn from "@/components/google-btn/google-btn.component";
 import Link from "next/link";
 import styles from './page.module.scss';
 
-export default function SignUp() {
+export default function SignUpPage() {
   return (
     <AuthForm
       title="Create an account"

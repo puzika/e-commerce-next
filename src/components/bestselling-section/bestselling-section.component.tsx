@@ -5,7 +5,6 @@ import Card from '../card/card.component';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { getProducts } from '@/lib/data';
-import type { Product } from '@/lib/definitions';
 import styles from './bestselling-section.module.scss';
 
 async function BestSellingProducts() {

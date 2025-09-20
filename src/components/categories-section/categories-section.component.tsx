@@ -1,33 +1,37 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Section from '../section/section.component';
 import Link from 'next/link';
 import ScrollBtnGroup from '../scroll-btn-group/scroll-btn-group.component';
-import categoryIcons from '@/lib/categories';
-import { IconContext } from 'react-icons';
+import categories from '@/lib/categories';
 import styles from './categories-section.module.scss';
 
 export default function CategoriesSection() {
   const [currStartSlide, setCurrStartSlide] = useState<number>(0);
   const visibleCnt = 6;
 
-  const slides = Object.entries(categoryIcons).map(
-    ([category, icon], idx) => (
+  const slides = useMemo(() => categories.map(
+    ({ category, icon }) => (
       <Link 
-        key={`categories-section-slide-${idx}`} 
-        className={styles.slide}
+        key={`categories-section-slide-${crypto.randomUUID()}`} 
         href="#"
+        className={styles.slide}
+        style={{
+          flex: `1 0 calc((100% - ${visibleCnt - 1} * 3rem) / ${visibleCnt})`,
+        }}
       >
         <div className={styles.slideContent}>
-          { icon }
+          <div className={styles.iconWrapper}>
+            { icon }
+          </div>
           <p className={styles.slideText}>
             {category}
           </p>
         </div>
       </Link>
     )
-  );
+  ), []);
 
   const handleScrollRight = () => {
     if (slides.length - visibleCnt > currStartSlide) {
@@ -48,10 +52,11 @@ export default function CategoriesSection() {
       action={<ScrollBtnGroup handleScrollLeft={handleScrollLeft} handleScrollRight={handleScrollRight} />}
     >
       <div className={styles.sliderWrapper}>
-        <div style={{ translate: `calc(-${currStartSlide} * ((100% - 3 * 5rem) / 6 + 3rem)) 0`}} className={styles.slider}>
-          <IconContext value={{ size: '4rem' }}>
-            { slides }
-          </IconContext>
+        <div 
+          className={styles.slider}
+          style={{ translate: `calc(-${currStartSlide} * ((100% - ${visibleCnt - 1} * 3rem) / ${visibleCnt} + 3rem)) 0`}} 
+        >
+          { slides }
         </div>
       </div>
     </Section>

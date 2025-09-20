@@ -3,7 +3,7 @@ import Button from "@/components/button/button.component";
 import CustomLink from "@/components/custom-link/custom-link.component";
 import styles from './page.module.scss';
 
-export default function Login() {
+export default function LoginPage() {
   return (
     <AuthForm
       title="Log in to Exclusive"

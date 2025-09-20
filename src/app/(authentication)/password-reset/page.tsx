@@ -3,7 +3,7 @@ import Button from "@/components/button/button.component"
 import CustomLink from "@/components/custom-link/custom-link.component";
 import styles from './page.module.scss';
 
-export default function PasswordReset() {
+export default function PasswordResetPage() {
   return (
     <AuthForm
       title="Recover Password"

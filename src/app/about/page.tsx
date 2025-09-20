@@ -9,7 +9,7 @@ import { IoBagHandleOutline } from "react-icons/io5"
 import { TbMoneybag } from "react-icons/tb"
 import styles from './page.module.scss'
 
-export default function About() {
+export default function AboutPage() {
   return (
     <>
       <article className={styles.container}>

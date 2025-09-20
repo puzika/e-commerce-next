@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import type { Product } from '@/lib/definitions';
 import Section from '../section/section.component';
 import ScrollBtnGroup from '../scroll-btn-group/scroll-btn-group.component';
@@ -15,33 +15,39 @@ export default function ExploreSection() {
   const [currStartSlide, setCurrStartSlide] = useState<number>(0);
   const [products, setProducts] = useState<Product[] | null>(null);
   const productsCnt = 16;
-  const cards = [];
+  const visibleCardsCnt = 4; 
 
   useEffect(() => {
-    getProducts(16)
+    getProducts(productsCnt)
       .then(data => setProducts(data.products))
       .catch(err => console.log(err));
   }, []);
 
-  for (let i = 0; i < productsCnt; i++) {
-    if (!products) {
-      cards.push(
-        <CardSkeleton key={`explore-skeleton-card-${i}`} />
-      )
-    } else {
-      const { title, price, rating, thumbnail, id } = products[i];
+  const cards = useMemo(() => {
+    const res = [];
 
-      cards.push(
-        <Card
-          key={`explore-product-card-${id}`}
-          title={title}
-          price={price}
-          rating={rating}
-          thumbnail={thumbnail}
-        />
-      )
+    for (let i = 0; i < productsCnt; i++) {
+      if (!products) {
+        res.push(
+          <CardSkeleton key={`explore-skeleton-card-${crypto.randomUUID()}`} />
+        )
+      } else {
+        const { title, price, rating, thumbnail, id } = products[i];
+
+        res.push(
+          <Card
+            key={`explore-product-card-${id}`}
+            title={title}
+            price={price}
+            rating={rating}
+            thumbnail={thumbnail}
+          />
+        )
+      }
     }
-  }
+
+    return res;
+  }, [products]);
 
   const handleScrollLeft = () => {
     if (currStartSlide > 0) {
@@ -63,7 +69,7 @@ export default function ExploreSection() {
     >
       <div className={styles.productsWrapper}>
         <div
-          style={{ translate: `calc(-${currStartSlide} * ((100% - 3 * 3rem) / 4 + 3rem)) 0`}}
+          style={{ translate: `calc(-${currStartSlide} * ((100% - ${visibleCardsCnt - 1} * 3rem) / ${visibleCardsCnt} + 3rem)) 0`}}
           className={styles.products}
         >
           { cards }

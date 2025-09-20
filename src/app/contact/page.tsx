@@ -3,7 +3,7 @@ import { FiPhone } from 'react-icons/fi';
 import { MdOutlineMail } from 'react-icons/md';
 import styles from './page.module.scss';
 
-export default function Contact() {
+export default function ContactPage() {
   return (
     <div className={styles.container}>
       <div className={styles.options}>

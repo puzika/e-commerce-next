@@ -2,7 +2,6 @@ import Section from '../section/section.component';
 import Button from '../button/button.component';
 import CardSkeleton from '../card-skeleton/card-skeleton.component';
 import Card from '../card/card.component';
-import Link from 'next/link';
 import { Suspense } from 'react';
 import { getProducts } from '@/lib/data';
 import styles from './bestselling-section.module.scss';

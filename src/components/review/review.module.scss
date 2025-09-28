@@ -1,0 +1,28 @@
+@use "@/colors";
+@use "@/variables";
+
+.review {
+  padding: 2rem 0;
+  border-bottom: variables.$separating-border;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.date {
+  color: colors.$clr-secondary-lts;
+  font-size: 1.8rem;
+  margin-right: auto;
+}
+
+.rating {
+  font-weight: bold;
+}

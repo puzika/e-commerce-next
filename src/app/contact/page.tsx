@@ -1,6 +1,7 @@
 import Button from '@/components/button/button.component';
 import { FiPhone } from 'react-icons/fi';
 import { MdOutlineMail } from 'react-icons/md';
+import sharedStyles from '@/shared-styles/input.module.scss';
 import styles from './page.module.scss';
 
 export default function ContactPage() {
@@ -30,10 +31,10 @@ export default function ContactPage() {
         </div>
       </div>
       <form className={styles.form} action="">
-        <input className={`${styles.input} ${styles.name}`} name="name" required type="text" placeholder='Your name *' />
-        <input className={`${styles.input} ${styles.email}`} name="email" required type="email" placeholder="Your email *" />
-        <input className={`${styles.input} ${styles.phone}`} name="phone" required type="phone" placeholder="Your phone *" />
-        <textarea className={`${styles.textarea} ${styles.message}`} name="message" placeholder='Your message'></textarea>
+        <input className={`${sharedStyles.input} ${styles.name}`} name="name" required type="text" placeholder='Your name *' />
+        <input className={`${sharedStyles.input} ${styles.email}`} name="email" required type="email" placeholder="Your email *" />
+        <input className={`${sharedStyles.input} ${styles.phone}`} name="phone" required type="phone" placeholder="Your phone *" />
+        <textarea className={`${sharedStyles.textarea} ${styles.message}`} name="message" placeholder='Your message'></textarea>
         <div className={styles.btn}>
           <Button type='button'>Send message</Button>
         </div>

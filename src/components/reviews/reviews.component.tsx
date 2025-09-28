@@ -1,9 +1,12 @@
-import type { Review } from '@/lib/definitions';
+import type { ReviewType } from '@/lib/definitions';
 import Stars from '../stars/stars.component';
+import Review from '../review/review.componen';
+import Button from '../button/button.component';
+import sharedStyles from '@/shared-styles/input.module.scss';
 import styles from './reviews.module.scss';
 
 type ReviewsProps = {
-  reviews: Review[],
+  reviews: ReviewType[],
   rating: number,
 }
 
@@ -15,7 +18,7 @@ export default function Reviews({ reviews, rating }: ReviewsProps) {
   }
 
   return (
-    <section className={styles.reviews}>
+    <section className={styles.reviewsSection}>
       <div className={styles.header}>
         <h2 className={styles.heading}>Reviews</h2>
         <div className={styles.stats}>
@@ -54,6 +57,22 @@ export default function Reviews({ reviews, rating }: ReviewsProps) {
             }
           </div>
         </div>
+      </div>
+      <form className={styles.form} >
+        <textarea 
+          name="review" 
+          placeholder="Your review" 
+          className={`${styles.textarea} ${sharedStyles.textarea}`}
+        >
+        </textarea>
+        <Button type="button">submit</Button>
+      </form>
+      <div className={styles.reviews}>
+        {
+          reviews.map(review => (
+            <Review key={crypto.randomUUID()} review={review} />
+          ))
+        }
       </div>
     </section>
   )

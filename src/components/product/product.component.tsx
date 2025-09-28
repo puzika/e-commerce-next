@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import type { Product } from '@/lib/definitions';
+import type { ProductType } from '@/lib/definitions';
 import { GoHeart } from 'react-icons/go';
 import Image from 'next/image';
 import Stars from '../stars/stars.component';
@@ -11,7 +11,7 @@ import clsx from 'clsx';
 import styles from './product.module.scss';
 
 type ProductProps = {
-  product: Product,
+  product: ProductType,
 }
 
 export default function Product({ product }: ProductProps) {

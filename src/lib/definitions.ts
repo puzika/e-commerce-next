@@ -8,7 +8,7 @@ export type FetchOptions = {
   }
 }
 
-export type Review = {
+export type ReviewType = {
   rating: number,
   comment: string,
   date: string,
@@ -16,7 +16,7 @@ export type Review = {
   reviewerEmail: string,
 }
 
-export type Product = {
+export type ProductType = {
   id: number,
   title: string,
   price: number,
@@ -27,7 +27,7 @@ export type Product = {
   description: string,
   returnPolicy: string,
   warrantyInformation: string,
-  reviews: Review[],
+  reviews: ReviewType[],
 };
 
 export type IconProps = {

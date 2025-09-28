@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
-import type { Product } from '@/lib/definitions';
+import type { ProductType } from '@/lib/definitions';
 import Section from '../section/section.component';
 import ScrollBtnGroup from '../scroll-btn-group/scroll-btn-group.component';
 import CardSkeleton from '../card-skeleton/card-skeleton.component';
@@ -12,7 +12,7 @@ import styles from './explore-section.module.scss';
 
 export default function ExploreSection() {
   const [currStartSlide, setCurrStartSlide] = useState<number>(0);
-  const [products, setProducts] = useState<Product[] | null>(null);
+  const [products, setProducts] = useState<ProductType[] | null>(null);
   const productsCnt = 16;
   const visibleCardsCnt = 4; 
 

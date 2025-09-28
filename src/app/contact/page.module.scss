@@ -93,19 +93,3 @@
   grid-area: btn;
   justify-self: end;
 }
-
-.input,
-.textarea {
-  font-size: inherit;
-  font-family: inherit;
-  color: inherit;
-  background-color: colors.$clr-semi-transparent;
-  padding: 1.5rem;
-  border: none;
-  border-radius: .5rem;
-  outline: none;
-}
-
-.textarea {
-  resize: none;
-}

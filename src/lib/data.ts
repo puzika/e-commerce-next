@@ -1,9 +1,9 @@
 import api from "./utils";
-import type { Product } from "./definitions";
+import type { ProductType } from "./definitions";
 
 export async function getProducts(limit: number = 30) {
   try {
-    const products = await api.get<{ products: Product[]}>(`https://dummyjson.com/products?limit=${limit}`);
+    const products = await api.get<{ products: ProductType[]}>(`https://dummyjson.com/products?limit=${limit}`);
     return products;
   } catch (error) {
     console.log(error);
@@ -23,7 +23,7 @@ export async function getCategoryList() {
 
 export async function getCategory(category: string, limit: number = 4) {
   try {
-    const products = await api.get<{ products: Product[]}>(`https://dummyjson.com/products/category/${category}?limit=${limit}`);
+    const products = await api.get<{ products: ProductType[]}>(`https://dummyjson.com/products/category/${category}?limit=${limit}`);
     return products;
   } catch (error) {
     console.log(error);
@@ -33,7 +33,7 @@ export async function getCategory(category: string, limit: number = 4) {
 
 export async function getProduct(productId: string) {
   try {
-    const product = await api.get<Product>(`https://dummyjson.com/products/${productId}`);
+    const product = await api.get<ProductType>(`https://dummyjson.com/products/${productId}`);
     return product;
   } catch (error) {
     console.log(error);

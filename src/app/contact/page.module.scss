@@ -1,9 +1,10 @@
 @use "@/colors";
+@use "@/variables";
 
 .container {
   display: flex;
   gap: 3rem;
-  margin: 10rem 0;
+  margin: variables.$primary-vertical-margin 0;
 
   & > * {
     padding: 4rem 3.5rem;

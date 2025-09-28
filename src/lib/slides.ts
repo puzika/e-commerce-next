@@ -10,14 +10,15 @@ type Slide = {
   alt: string,
   title: string,
   slogan: string,
+  category: string,
 }
 
 const slides: Slide[] = [
-  { image: MensWatch, alt: "Men's watches", title: "Men's watches", slogan: "Where tradition meets precision" },
-  { image: Laptop, alt: "Laptops", title: "Laptops", slogan: "Your partner in performance" },
-  { image: Smartphone, alt: "Smartphones", title: "Smartphones", slogan: "Never Miss a Shot" },
-  { image: Sunglasses, alt: "Sunglasses", title: "Sunglasses", slogan: "Live in your shade" },
-  { image: Fragrance, alt: "Fragrances", title: "Fragrances", slogan: "Command the air around you" },
+  { image: MensWatch, alt: "Men's watches", title: "Men's watches", slogan: "Where tradition meets precision", category: "mens-watches" },
+  { image: Laptop, alt: "Laptops", title: "Laptops", slogan: "Your partner in performance", category: "laptops" },
+  { image: Smartphone, alt: "Smartphones", title: "Smartphones", slogan: "Never Miss a Shot", category: "smartphones" },
+  { image: Sunglasses, alt: "Sunglasses", title: "Sunglasses", slogan: "Live in your shade", category: "sunglasses" },
+  { image: Fragrance, alt: "Fragrances", title: "Fragrances", slogan: "Command the air around you", category: "fragrances" },
 ]
 
 export default slides;

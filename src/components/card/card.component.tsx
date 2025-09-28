@@ -10,25 +10,28 @@ type CardProps = {
   title: string,
   price: number,
   rating: number,
+  id: string,
 }
 
-export default function Card({ thumbnail, title, price, rating }: CardProps) {
+export default function Card({ thumbnail, title, price, rating, id }: CardProps) {
   return (
     <div className={sharedStyles.card}>
       <div className={styles.imageWrapper}>
-        <Image
-          src={thumbnail}
-          alt={title}
-          fill
-          sizes="(min-width: 1200px) calc(25vw - 82px), 201px"
-          className={styles.image}
-        />
+        <Link href={`/${id}`}>
+          <Image
+            src={thumbnail}
+            alt={title}
+            fill
+            sizes="(min-width: 1200px) calc(25vw - 82px), 201px"
+            className={styles.image}
+          />
+        </Link>
         <button aria-label='Add to favorites' className={styles.favorite}>
           <GoHeart />
         </button>
         <button className={styles.btn}>Add to card</button>
       </div>
-      <Link className={styles.title} href="#">{title}</Link>
+      <Link className={styles.title} href={`/${id}`}>{title}</Link>
       <p className={styles.price}>${price}</p>
       <div className={styles.rating}>
         <Stars rating={rating} />

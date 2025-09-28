@@ -17,6 +17,7 @@ async function Cards({category}: CategoryProps) {
     products.map(({ id, ...props }) => (
       <Card 
         key={`${category}-card-${id}-${crypto.randomUUID()}`}
+        id={`${id}`}
         {...props}
       />
     ))
@@ -39,7 +40,7 @@ export default async function Category({ category }: CategoryProps) {
     <div className={styles.category}>
       <div className={styles.header}>
         <h2 className={styles.title}>{ category }</h2>
-        <Button><Link href="#">See all</Link></Button>
+        <Button type='link' href={`categories/${category}`}>See all</Button>
       </div>
       <div className={styles.products}>
         <Suspense fallback={<Skeletons />}>

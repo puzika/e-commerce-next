@@ -1,0 +1,62 @@
+@use "@/colors";
+@use "@/variables";
+
+.reviews {
+  width: 70%;
+  min-width: 35rem;
+}
+
+.heading {
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: variables.$separating-border;
+}
+
+.separator {
+  border-right: variables.$separating-border;
+}
+
+.stats {
+  display: flex;
+  gap: 3rem;
+}
+
+.statsOverall {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.rating {
+  font-size: 4rem;
+}
+
+.statsVisual {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ratingItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ratingBar {
+  flex: 1;
+  height: 1.2rem;
+  border-radius: 10rem;
+}
+
+.ratingItemDescription {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 9rem;
+  font-size: 1.8rem;
+  color: colors.$clr-secondary-lts;
+}

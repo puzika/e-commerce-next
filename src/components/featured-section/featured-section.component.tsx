@@ -19,7 +19,7 @@ export default function FeaturedSection() {
     >
       <div className={styles.banners}>
         {
-          banners.map(({ title, alt, image, slogan }, idx) => (
+          banners.map(({ title, alt, image, slogan, category }, idx) => (
             <div 
               key={`featured-section-banner-${idx}`} 
               className={styles[`banner-${idx + 1}`]}
@@ -27,7 +27,7 @@ export default function FeaturedSection() {
               <div className={styles.bannerText}>
                 <p className={styles.bannerTitle}>{title}</p>
                 <p className={styles.bannerSlogan}>{slogan}</p>
-                <Link className={styles.link} href={'#'}>Shop now</Link>
+                <Link className={styles.link} href={`categories/${category}`}>Shop now</Link>
               </div>
               <Image
                 src={image}

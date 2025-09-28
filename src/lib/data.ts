@@ -30,3 +30,13 @@ export async function getCategory(category: string, limit: number = 4) {
     throw new Error(`Failed to get ${category}`);
   }
 }
+
+export async function getProduct(productId: string) {
+  try {
+    const product = await api.get<Product>(`https://dummyjson.com/products/${productId}`);
+    return product;
+  } catch (error) {
+    console.log(error);
+    throw new Error(`Failed to get product. Product id: ${productId}`);
+  }
+}

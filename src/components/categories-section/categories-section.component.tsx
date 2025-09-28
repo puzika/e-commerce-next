@@ -15,7 +15,7 @@ export default function CategoriesSection() {
     ({ category, icon }) => (
       <Link 
         key={`categories-section-slide-${crypto.randomUUID()}`} 
-        href="#"
+        href={`categories/${category}`}
         className={styles.slide}
         style={{
           flex: `1 0 calc((100% - ${visibleCnt - 1} * 3rem) / ${visibleCnt})`,

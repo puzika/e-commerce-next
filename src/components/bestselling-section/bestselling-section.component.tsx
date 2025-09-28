@@ -13,13 +13,11 @@ async function BestSellingProducts() {
   return(
     <div className={styles.cards}>
       {
-        products.map(({id, title, thumbnail, price, rating}) => (
+        products.map(({id, ...props}) => (
           <Card 
             key={id}
-            title={title}
-            thumbnail={thumbnail}
-            price={price}
-            rating={rating}
+            id={`${id}`}
+            {...props}
           />
         ))
       }
@@ -45,9 +43,7 @@ export default function BestSellingSection() {
       title="This month"
       heading="Best selling products"
       action={
-        <Button>
-          <Link href="#">View all</Link>
-        </Button>
+        <Button type="link" href="categories">View all</Button>
       }
     >
       <Suspense fallback={<BestSellingSkeleton />}>

@@ -1,0 +1,47 @@
+@use "@/variables";
+@use "@/colors";
+
+.buttonsCnt {
+  display: flex;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  aspect-ratio: 1;
+  font-size: 2.8rem;
+  color: inherit;
+  background-color: transparent;
+  outline: none;
+  border: variables.$primary-border;
+  transition: all .2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: colors.$clr-primary;
+    color: colors.$clr-base;
+    border-color: colors.$clr-primary;
+  }
+}
+
+.btnLeft {
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+}
+
+.btnRight {
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+}
+
+.cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 8rem;
+  font-size: 2.5rem;
+  border-top: variables.$primary-border;
+  border-bottom: variables.$primary-border;
+}

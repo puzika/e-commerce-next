@@ -1,5 +1,7 @@
+@use "@/variables";
+
 .categories {
-  margin: 10rem 0;
+  margin: variables.$primary-vertical-margin 0;
   display: flex;
   flex-direction: column;
   gap: 10rem;

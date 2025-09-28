@@ -35,7 +35,7 @@ export default function ContactPage() {
         <input className={`${styles.input} ${styles.phone}`} name="phone" required type="phone" placeholder="Your phone *" />
         <textarea className={`${styles.textarea} ${styles.message}`} name="message" placeholder='Your message'></textarea>
         <div className={styles.btn}>
-          <Button>Send message</Button>
+          <Button type='button'>Send message</Button>
         </div>
       </form>
     </div>

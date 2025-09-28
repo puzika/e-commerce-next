@@ -12,6 +12,10 @@
   border-right: variables.$separating-border;
 }
 
+.item {
+  text-transform: capitalize;
+}
+
 .link {
   &:link,
   &:visited {

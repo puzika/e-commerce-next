@@ -1,0 +1,5 @@
+@use "@/variables";
+
+.container {
+  margin: variables.$primary-vertical-margin 0;
+}

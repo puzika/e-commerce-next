@@ -13,10 +13,11 @@ type SlideProps = {
   alt: string,
   title: string,
   slogan: string,
+  category: string
   priority?: boolean,
 }
 
-function Slide({ pos, image, alt, priority, title, slogan }: SlideProps) {
+function Slide({ pos, image, alt, priority, title, slogan, category }: SlideProps) {
   return (
     <div 
       style={{ translate: `${pos * 100}% 0`}} 
@@ -25,7 +26,7 @@ function Slide({ pos, image, alt, priority, title, slogan }: SlideProps) {
       <div className={styles.slideText}>
         <p className={styles.slideTitle}>{title}</p>
         <p className={styles.slideSlogan}>{slogan}</p>
-        <Link className={styles.link} href={'#'}>
+        <Link className={styles.link} href={`categories/${category}`}>
           <span>Shop now</span>
           <span>&rarr;</span>
         </Link>
@@ -51,14 +52,11 @@ export default function Slider({ priority }: Slider) {
   return (
     <div className={styles.slider}>
       {
-        slides.map(({ image, alt, title, slogan }, idx) => (
+        slides.map((props, idx) => (
           <Slide 
             key={`slider-slide-${idx}`} 
-            pos={idx - currSlide} 
-            image={image} 
-            alt={alt} 
-            title={title}
-            slogan={slogan}
+            pos={idx - currSlide}
+            {...props}
             priority={priority} 
           />
         ))

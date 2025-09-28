@@ -8,12 +8,26 @@ export type FetchOptions = {
   }
 }
 
+export type Review = {
+  rating: number,
+  comment: string,
+  date: string,
+  reviewerName: string,
+  reviewerEmail: string,
+}
+
 export type Product = {
   id: number,
   title: string,
   price: number,
   rating: number,
   thumbnail: string,
+  images: string[],
+  availabilityStatus: string,
+  description: string,
+  returnPolicy: string,
+  warrantyInformation: string,
+  reviews: Review[],
 };
 
 export type IconProps = {

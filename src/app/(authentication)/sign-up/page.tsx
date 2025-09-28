@@ -14,7 +14,7 @@ export default function SignUpPage() {
       <input type="email" name="email" placeholder="Email" />
       <input type="password" name="password" placeholder="Password" />
       <div className={styles.btns}>
-        <Button>Create account</Button>
+        <Button type="button">Create account</Button>
         <GoogleBtn title="Sign up with Google" />
       </div>
       <div className={styles.alternatives}>

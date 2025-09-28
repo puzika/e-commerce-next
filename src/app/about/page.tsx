@@ -30,6 +30,7 @@ export default function AboutPage() {
             alt={"Side image"}
             fill
             priority
+            sizes="(min-width: 560px) calc(50vw - 162px), calc(98vw - 421px)"
           />
         </div>
       </article>

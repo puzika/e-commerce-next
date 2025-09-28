@@ -7,7 +7,6 @@ import ScrollBtnGroup from '../scroll-btn-group/scroll-btn-group.component';
 import CardSkeleton from '../card-skeleton/card-skeleton.component';
 import Card from '../card/card.component';
 import Button from '../button/button.component';
-import Link from 'next/link';
 import { getProducts } from '@/lib/data';
 import styles from './explore-section.module.scss';
 
@@ -32,15 +31,13 @@ export default function ExploreSection() {
           <CardSkeleton key={`explore-skeleton-card-${crypto.randomUUID()}`} />
         )
       } else {
-        const { title, price, rating, thumbnail, id } = products[i];
+        const { id, ...props } = products[i];
 
         res.push(
           <Card
             key={`explore-product-card-${id}`}
-            title={title}
-            price={price}
-            rating={rating}
-            thumbnail={thumbnail}
+            id={`${id}`}
+            {...props}
           />
         )
       }
@@ -75,9 +72,7 @@ export default function ExploreSection() {
           { cards }
         </div>
       </div>
-      <Button>
-        <Link href="#">view all products</Link>
-      </Button>
+      <Button type='link' href="categories">view all products</Button>
     </Section>
   )
 }

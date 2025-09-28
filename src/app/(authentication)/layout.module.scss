@@ -1,9 +1,11 @@
+@use "@/variables";
+
 .authentication {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10rem;
-  padding: 5rem 0;
+  margin: variables.$primary-vertical-margin 0;
 }
 
 .authenticationImage {

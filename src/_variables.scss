@@ -1,5 +1,7 @@
 @use '@/colors';
 
-$separating-border: 2px solid colors.$clr-separating-border;
+$separating-border: .2rem solid colors.$clr-separating-border;
 $primary-padding-horizontal: 12rem;
 $primary-padding-top: 4rem; 
+$primary-vertical-margin: 10rem;
+$primary-border: .2rem solid rgba(colors.$clr-secondary-lts, .5);

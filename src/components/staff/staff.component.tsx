@@ -24,6 +24,7 @@ export default function Staff() {
           src={img}
           alt={`${name}: ${position}`}
           fill
+          sizes="(min-width: 760px) calc(30vw - 105px), 114px"
         />
       </div>
       <p className={styles.name}>{name}</p>

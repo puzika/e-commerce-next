@@ -12,7 +12,7 @@ export default function LoginPage() {
       <input type="email" name="email" placeholder="Email" />
       <input type="password" name="password" placeholder="Password" />
       <div className={styles.btns}>
-        <Button>Log in</Button>
+        <Button type="button">Log in</Button>
         <CustomLink title="Forgot Password?" href="password-reset" />
       </div>
     </AuthForm>

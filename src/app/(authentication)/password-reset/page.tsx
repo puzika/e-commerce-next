@@ -10,7 +10,7 @@ export default function PasswordResetPage() {
       subheading="Receive account recovery link on your email"
     >
       <input type="email" name="email" placeholder="Email" />
-      <Button>Send</Button>
+      <Button type="button">Send</Button>
       <div className={styles.alternatives}>
         <CustomLink href="sign-up" title="Sign up" />
         <span className={styles.conjunction}>OR</span>

@@ -1,0 +1,132 @@
+@use "@/colors";
+@use "@/variables";
+
+.product {
+  display: flex;
+  gap: 5rem;
+  margin-bottom: 10rem;
+}
+
+.images {
+  width: 55%;
+  aspect-ratio: 1.2;
+  display: grid;
+  grid-template-columns: .3fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  row-gap: 1.5rem;
+  column-gap: 3rem;
+}
+
+.imgWrapper {
+  position: relative;
+  background-color: colors.$clr-semi-transparent;
+  border-radius: .5rem;
+  border: 0 solid colors.$clr-primary;
+  transition: border-width .2s;
+}
+
+.imgWrapperCurr {
+  border-width: 1rem;
+}
+
+.currImg {
+  grid-area: 1 / 2 / -1 / -1;
+}
+
+.detailsWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsTop {
+  padding-bottom: 2rem;
+  gap: 2rem;
+}
+
+.detailsBottom {
+  padding-top: 2rem;
+  gap: 2.5rem;
+}
+
+.description {
+  margin-top: 1rem;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.separatorVertical {
+  width: .15rem;
+  height: 3.5rem;
+}
+
+.separatorHorizontal {
+  height: .1rem;
+  width: 100%;
+}
+
+.separatorVertical,
+.separatorHorizontal {
+  background-color: rgba(colors.$clr-secondary-lts, .5);
+}
+
+.availability {
+  color: colors.$clr-in-stock;
+}
+
+.price {
+  font-size: 3.5rem;
+}
+
+.detail {
+  font-size: 2.2rem;
+}
+
+.detailName {
+  font-weight: bold;
+  margin-right: .5rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-start;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.favorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  aspect-ratio: 1;
+  background-color: transparent;
+  color: inherit;
+  font-size: 3rem;
+  outline: none;
+  border: variables.$primary-border;
+  border-radius: .5rem;
+  transition: all .2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: colors.$clr-primary;
+    border: colors.$clr-primary;
+    color: colors.$clr-base;
+  }
+}
+
+.img {
+  object-fit: cover;
+}

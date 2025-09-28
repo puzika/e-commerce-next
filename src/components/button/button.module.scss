@@ -17,3 +17,8 @@
     background-color: colors.$clr-primary-lt;
   }
 }
+
+.btnLink:link,
+.btnLink:visited {
+  color: colors.$clr-base;
+}

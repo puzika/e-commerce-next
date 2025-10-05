@@ -1,13 +1,14 @@
 import styles from './card-skeleton.module.scss';
 import sharedStyles from '@/shared-styles/card.module.scss';
+import skeletonStyles from '@/shared-styles/skeleton.module.scss';
 
 export default function CardSkeleton() {
   return (
-    <div className={`${sharedStyles.card} ${styles.skeleton}`}>
-      <div className={`${styles.shimmer} ${styles.skeletonImage}`}></div>
-      <div className={`${styles.shimmer} ${styles.skeletonTitle}`}></div>
-      <div className={`${styles.shimmer} ${styles.skeletonPrice}`}></div>
-      <div className={`${styles.shimmer} ${styles.skeletonRating}`}></div>
+    <div className={`${sharedStyles.card} ${skeletonStyles.skeleton}`}>
+      <div className={sharedStyles.cardImage}></div>
+      <div className={`${styles.skeletonTitle} ${skeletonStyles.line}`}></div>
+      <div className={`${styles.skeletonPrice} ${skeletonStyles.line}`}></div>
+      <div className={`${styles.skeletonRating} ${skeletonStyles.line}`}></div>
     </div>
   )
 }

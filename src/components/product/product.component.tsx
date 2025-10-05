@@ -9,6 +9,7 @@ import ButtonsCnt from '../buttons-cnt/buttons-cnt.component';
 import Button from '../button/button.component';
 import clsx from 'clsx';
 import styles from './product.module.scss';
+import sharedStyles from '@/shared-styles/product.module.scss';
 
 type ProductProps = {
   product: ProductType,
@@ -54,10 +55,10 @@ export default function Product({ product }: ProductProps) {
   }
 
   return (
-    <div className={styles.product}>
-      <div className={styles.images}>
+    <div className={sharedStyles.product}>
+      <div className={sharedStyles.images}>
         { sideImages }
-        <div className={`${styles.imgWrapper} ${styles.currImg}`}>
+        <div className={`${styles.imgWrapper} ${sharedStyles.currImg}`}>
           <Image
             className={styles.img}
             src={images[currImg]}
@@ -68,7 +69,7 @@ export default function Product({ product }: ProductProps) {
           />
         </div>
       </div>
-      <div className={styles.detailsWrapper}>
+      <div className={sharedStyles.detailsWrapper}>
         <div className={`${styles.details} ${styles.detailsTop}`}>
           <h2 className={styles.heading}>{title}</h2>
           <div className={styles.stats}>
@@ -83,7 +84,7 @@ export default function Product({ product }: ProductProps) {
         <div className={`${styles.details} ${styles.detailsBottom}`}>
           <p className={styles.detail}><span className={styles.detailName}>Return policy: </span>{returnPolicy}</p>
           <p className={styles.detail}><span className={styles.detailName}>Warranty: </span>{warrantyInformation}</p>
-          <div className={styles.buttons}>
+          <div className={sharedStyles.buttons}>
             <ButtonsCnt 
               count={cnt} 
               handleIncrement={handleDecrement} 

@@ -3,7 +3,6 @@
 .header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 6rem;
 }
 
 .title {
@@ -22,14 +21,5 @@
     width: 2rem;
     background-color: colors.$clr-primary;
     border-radius: .5rem;
-  }
-}
-
-.products {
-  display: flex;
-  gap: 3rem;
-
-  & > * {
-    flex-basis: calc((100% - 3 * 3rem) / 4);
   }
 }

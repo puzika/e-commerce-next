@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import Button from '../button/button.component';
 import Card from '../card/card.component';
 import CardSkeleton from '../card-skeleton/card-skeleton.component';
-import Link from 'next/link';
+import sharedCategoryStyles from '@/shared-styles/category.module.scss';
 import styles from './category.module.scss';
 
 type CategoryProps = {
@@ -38,11 +38,11 @@ function Skeletons() {
 export default async function Category({ category }: CategoryProps) {
   return (
     <div className={styles.category}>
-      <div className={styles.header}>
+      <div className={`${sharedCategoryStyles.header} ${styles.header}`}>
         <h2 className={styles.title}>{ category }</h2>
         <Button type='link' href={`categories/${category}`}>See all</Button>
       </div>
-      <div className={styles.products}>
+      <div className={`${sharedCategoryStyles.products} ${styles.products}`}>
         <Suspense fallback={<Skeletons />}>
           <Cards category={category} />
         </Suspense>

@@ -1,5 +1,11 @@
+import CategorySkeleton from "@/components/category-skeleton/category-skeleton.component"
+
 export default function CategoriesLoading() {
   return (
-    <p>Loading...</p>
+    <>
+      <CategorySkeleton />
+      <CategorySkeleton />
+      <CategorySkeleton />
+    </>
   )
 }

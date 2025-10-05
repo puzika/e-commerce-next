@@ -1,0 +1,12 @@
+.header {
+  margin-bottom: 6rem;
+}
+
+.products {
+  display: flex;
+  gap: 3rem;
+
+  & > * {
+    flex-basis: calc((100% - 3 * 3rem) / 4);
+  }
+}

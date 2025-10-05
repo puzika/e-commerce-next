@@ -1,6 +1,7 @@
 import type { ReviewType } from '@/lib/definitions';
 import Stars from '../stars/stars.component';
 import styles from './review.module.scss';
+import sharedStyles from '@/shared-styles/review.module.scss'
 
 type ReviewProps = {
   review: ReviewType,
@@ -24,8 +25,8 @@ export default function Review({ review }: ReviewProps) {
   ).format(new Date(date));
 
   return (
-    <article className={styles.review}>
-      <div className={styles.header}>
+    <article className={sharedStyles.review}>
+      <div className={sharedStyles.header}>
         <p className={styles.name}>{reviewerName}</p>
         <p className={styles.date}>{formattedDate}</p>
         <p className={styles.rating}>{rating.toFixed(1)}</p>

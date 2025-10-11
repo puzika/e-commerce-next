@@ -19,7 +19,6 @@ export default function ExploreSection() {
   useEffect(() => {
     getProducts(productsCnt)
       .then(data => setProducts(data.products))
-      .catch(err => console.log(err));
   }, []);
 
   const cards = useMemo(() => {

@@ -1,5 +1,3 @@
-import type { StaticImport } from "next/dist/shared/lib/get-img-props";
-
 export type FetchOptions = {
   cache?: 'force-cache' | 'no-store',
   next?: {
@@ -33,4 +31,16 @@ export type ProductType = {
 export type IconProps = {
   size: number,
   fill?: boolean,
+}
+
+export type Request = {
+  url: string,
+  options?: FetchOptions,
+  errorDescription?: string,
+}
+
+export type RequestError = {
+  title: string,
+  message: string,
+  description?: string,
 }

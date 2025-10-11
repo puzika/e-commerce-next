@@ -16,6 +16,7 @@ export default function ButtonsCnt({count, handleIncrement, handleDecrement}: Bu
       <button 
         className={`${styles.btn} ${styles.btnLeft}`} 
         onClick={handleIncrement}
+        aria-label='Increase button'
       >
         <AiOutlineMinus />
       </button>
@@ -23,6 +24,7 @@ export default function ButtonsCnt({count, handleIncrement, handleDecrement}: Bu
       <button 
         className={`${styles.btn} ${styles.btnRight}`} 
         onClick={handleDecrement}
+        aria-label="Decrease button"
       >
         <AiOutlinePlus />
       </button>

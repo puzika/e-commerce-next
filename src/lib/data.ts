@@ -1,42 +1,40 @@
 import api from "./utils";
 import type { ProductType } from "./definitions";
 
+const BASE_URL = 'https://dummyjson.com';
+
 export async function getProducts(limit: number = 30) {
-  try {
-    const products = await api.get<{ products: ProductType[]}>(`https://dummyjson.com/products?limit=${limit}`);
-    return products;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to get best selling products")
-  }
+  const products = await api.get<{ products: ProductType[]}>({ 
+    url: `${BASE_URL}/products?limit=${limit}`,
+    errorDescription: 'Failed to fetch products',
+  });
+
+  return products;
 }
 
 export async function getCategoryList() {
-  try {
-    const list = await api.get<string[]>('https://dummyjson.com/products/category-list');
-    return list;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to get category list");
-  }
+  const list = await api.get<string[]>({ 
+    url: `${BASE_URL}/products/category-list`,
+    errorDescription: 'Failed to fetch category list'
+  });
+
+  return list;
 }
 
 export async function getCategory(category: string, limit: number = 4) {
-  try {
-    const products = await api.get<{ products: ProductType[]}>(`https://dummyjson.com/products/category/${category}?limit=${limit}`);
-    return products;
-  } catch (error) {
-    console.log(error);
-    throw new Error(`Failed to get ${category}`);
-  }
+  const products = await api.get<{ products: ProductType[]}>({ 
+    url: `${BASE_URL}/products/category/${category}?limit=${limit}`,
+    errorDescription: 'Failed to fetch category products',
+  });
+
+  return products;
 }
 
 export async function getProduct(productId: string) {
-  try {
-    const product = await api.get<ProductType>(`https://dummyjson.com/products/${productId}`);
-    return product;
-  } catch (error) {
-    console.log(error);
-    throw new Error(`Failed to get product. Product id: ${productId}`);
-  }
+  const product = await api.get<ProductType>({ 
+    url: `${BASE_URL}/products/${productId}`,
+    errorDescription: `Failed to fetch product. Product id: ${productId}`,
+  });
+
+  return product;
 }

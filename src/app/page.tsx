@@ -7,7 +7,7 @@ import FeaturedSection from "@/components/featured-section/featured-section.comp
 import Services from "@/components/services/services.component";
 import styles from './page.module.scss';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <div className={styles.horizontal}>

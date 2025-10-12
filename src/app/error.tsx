@@ -9,7 +9,7 @@ type ErrorProps = {
   reset: () => {},
 }
 
-export default function Error({ error, reset }: ErrorProps ) {
+export default function ErrorPage({ error, reset }: ErrorProps ) {
   const {
     title,
     message,

@@ -35,7 +35,7 @@ export type IconProps = {
 
 export type Request = {
   url: string,
-  options?: FetchOptions,
+  options?: FetchOptions & { timeout?: number },
   errorDescription?: string,
 }
 

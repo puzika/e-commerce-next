@@ -1,6 +1,42 @@
 @use "@/colors";
 @use "@/variables";
 
+.product {
+  display: flex;
+  gap: 5rem;
+  margin-bottom: 10rem;
+}
+
+.images {
+  width: 55%;
+  aspect-ratio: 1.2;
+  display: grid;
+  grid-template-columns: .3fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  row-gap: 1.5rem;
+  column-gap: 3rem;
+  align-self: flex-start;
+}
+
+.currImg {
+  grid-area: 1 / 2 / -1 / -1;
+}
+
+.detailsWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-start;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
 .imgWrapper {
   position: relative;
   background-color: colors.$clr-semi-transparent;
@@ -94,4 +130,45 @@
 
 .img {
   object-fit: cover;
+}
+
+//SKELETON STYLES
+
+.description.descriptionSkeleton,
+.buttons.buttonsSkeleton {
+  background-color: transparent;
+}
+
+.headingSkeleton {
+  width: 50%;
+  min-width: 20rem;
+  height: 3rem;
+}
+
+.statsSkeleton {
+  width: 40%;
+  min-width: 20rem;
+  height: 2.5rem;
+}
+
+.priceSkeleton {
+  width: 15rem;
+  height: 4rem;
+}
+
+.descriptionSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.lineSkeleton {
+  height: 2rem;
+  width: 100%;
+}
+
+.termSkeleton {
+  height: 2.5rem;
+  width: 50%;
 }

@@ -1,4 +1,4 @@
-import CardSkeleton from "@/components/card-skeleton/card-skeleton.component";
+import CardSkeleton from "@/components/card/card-skeleton.component";
 import Card from "@/components/card/card.component";
 import { getCategory } from "@/lib/data";
 import { Suspense } from "react";
@@ -45,7 +45,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const { category } = await params;
 
   return (
-    <div className={styles.category}>
+    <div>
       <h2 className={styles.heading}>{category}</h2>
       <div className={styles.products}>
         <Suspense fallback={<Skeletons />}>

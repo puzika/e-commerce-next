@@ -9,7 +9,6 @@ import ButtonsCnt from '../buttons-cnt/buttons-cnt.component';
 import Button from '../button/button.component';
 import clsx from 'clsx';
 import styles from './product.module.scss';
-import sharedStyles from '@/shared-styles/product.module.scss';
 
 type ProductProps = {
   product: ProductType,
@@ -46,19 +45,19 @@ export default function Product({ product }: ProductProps) {
     </div>
   )), [currImg, product]);
 
-  const handleDecrement = async () => {
+  const handleDecrement = () => {
     if (cnt > 0) setCnt(cnt - 1);
   }
 
-  const handleIncrement = async () => {
+  const handleIncrement = () => {
     setCnt(cnt + 1);
   }
 
   return (
-    <div className={sharedStyles.product}>
-      <div className={sharedStyles.images}>
+    <div className={styles.product}>
+      <div className={styles.images}>
         { sideImages }
-        <div className={`${styles.imgWrapper} ${sharedStyles.currImg}`}>
+        <div className={clsx(styles.imgWrapper, styles.currImg)}>
           <Image
             className={styles.img}
             src={images[currImg]}
@@ -69,8 +68,8 @@ export default function Product({ product }: ProductProps) {
           />
         </div>
       </div>
-      <div className={sharedStyles.detailsWrapper}>
-        <div className={`${styles.details} ${styles.detailsTop}`}>
+      <div className={styles.detailsWrapper}>
+        <div className={clsx(styles.details, styles.detailsTop)}>
           <h2 className={styles.heading}>{title}</h2>
           <div className={styles.stats}>
             <Stars rating={rating} />
@@ -84,7 +83,7 @@ export default function Product({ product }: ProductProps) {
         <div className={`${styles.details} ${styles.detailsBottom}`}>
           <p className={styles.detail}><span className={styles.detailName}>Return policy: </span>{returnPolicy}</p>
           <p className={styles.detail}><span className={styles.detailName}>Warranty: </span>{warrantyInformation}</p>
-          <div className={sharedStyles.buttons}>
+          <div className={styles.buttons}>
             <ButtonsCnt 
               count={cnt} 
               handleIncrement={handleDecrement} 

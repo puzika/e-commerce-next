@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import type { ProductType } from '@/lib/definitions';
 import Section from '../section/section.component';
 import ScrollBtnGroup from '../scroll-btn-group/scroll-btn-group.component';
-import CardSkeleton from '../card-skeleton/card-skeleton.component';
+import CardSkeleton from '../card/card-skeleton.component';
 import Card from '../card/card.component';
 import Button from '../button/button.component';
 import { getProducts } from '@/lib/data';
@@ -19,6 +19,9 @@ export default function ExploreSection() {
   useEffect(() => {
     getProducts(productsCnt)
       .then(data => setProducts(data.products))
+      .catch(err => {
+        throw err;
+      });
   }, []);
 
   const cards = useMemo(() => {
@@ -71,7 +74,9 @@ export default function ExploreSection() {
           { cards }
         </div>
       </div>
-      <Button type='link' href="categories">view all products</Button>
+      <div className={styles.btn}>
+        <Button type='link' href="categories">view all products</Button>
+      </div>
     </Section>
   )
 }

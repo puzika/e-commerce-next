@@ -6,10 +6,9 @@ import styles from './error.module.scss';
 
 type ErrorProps = {
   error: Error & { digest?: string },
-  reset: () => {},
 }
 
-export default function ErrorPage({ error, reset }: ErrorProps ) {
+export default function ErrorPage({ error }: ErrorProps ) {
   const {
     title,
     message,
@@ -21,7 +20,7 @@ export default function ErrorPage({ error, reset }: ErrorProps ) {
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.message}>{message}</p>
       <p>{description}</p>
-      <Button type="button" handler={() => reset()}>Try again</Button>
+      <Button type="button" handler={() => window.location.reload()}>Try again</Button>
     </div>
   )
 }

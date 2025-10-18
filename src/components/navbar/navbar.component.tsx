@@ -22,12 +22,12 @@ export default function Navbar() {
       </h1>
       <ul className={styles.list}>
         <li className={styles.item}><CustomLink title={'Home'} href="/" /></li>
-        <li className={styles.item}><CustomLink title={'Contact'} href="contact" /></li>
-        <li className={styles.item}><CustomLink title={'About'} href="about" /></li>
-        <li className={styles.item}><CustomLink title={'Sign up'} href="sign-up" /></li>
+        <li className={styles.item}><CustomLink title={'Contact'} href="/contact" /></li>
+        <li className={styles.item}><CustomLink title={'About'} href="/about" /></li>
+        <li className={styles.item}><CustomLink title={'Sign up'} href="/sign-up" /></li>
       </ul>
       <div className={styles.right}>
-        <Search name="search-products" placeholder='What are you looking for?' />
+        <Search name="productName" placeholder='What are you looking for?' />
         <button aria-label='favorites' className={styles.iconBtn}><Favorite size={3} /></button>
         <button aria-label='cart' className={styles.iconBtn}><Cart size={3} /></button>
       </div>

@@ -2,7 +2,6 @@ import Button from '@/components/button/button.component';
 import TextField from '@/components/text-field/text-field.component';
 import { FiPhone } from 'react-icons/fi';
 import { MdOutlineMail } from 'react-icons/md';
-import sharedStyles from '@/shared-styles/input.module.scss';
 import styles from './page.module.scss';
 
 export default function ContactPage() {

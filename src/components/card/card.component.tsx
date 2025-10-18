@@ -3,7 +3,6 @@ import Stars from '../stars/stars.component';
 import { GoHeart } from 'react-icons/go';
 import Link from 'next/link';
 import styles from './card.module.scss';
-import sharedStyles from '@/shared-styles/card.module.scss';
 
 type CardProps = {
   thumbnail: string,
@@ -15,9 +14,9 @@ type CardProps = {
 
 export default function Card({ thumbnail, title, price, rating, id }: CardProps) {
   return (
-    <div className={sharedStyles.card}>
-      <div className={`${styles.imageWrapper} ${sharedStyles.cardImage}`}>
-        <Link href={`/${id}`}>
+    <div className={styles.card}>
+      <div className={styles.imageWrapper}>
+        <Link className={styles.imageLink} href={`/${id}`}>
           <Image
             src={thumbnail}
             alt={title}

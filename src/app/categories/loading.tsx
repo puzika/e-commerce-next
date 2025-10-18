@@ -1,4 +1,4 @@
-import CategorySkeleton from "@/components/category-skeleton/category-skeleton.component"
+import CategorySkeleton from "@/components/category/category-skeleton.component"
 
 export default function CategoriesLoading() {
   return (

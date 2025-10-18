@@ -1,6 +1,13 @@
 @use 'sass:color';
 @use '@/colors';
 
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
 .imageWrapper {
   position: relative;
   width: 100%;
@@ -9,6 +16,13 @@
   border-radius: 1rem;
   margin-bottom: .5rem;
   overflow: hidden;
+}
+
+.imageLink {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .image {
@@ -76,4 +90,16 @@
 .imageWrapper:hover .btn {
   visibility: visible;
   opacity: 1;
+}
+
+.skeletonTitle {
+  width: 60%;
+}
+
+.skeletonPrice {
+  width: 40%;
+}
+
+.skeletonRating {
+  width: 50%;
 }

@@ -41,3 +41,12 @@ export async function getProduct(productId: string) {
 
   return product;
 }
+
+export async function getProductsByName(productName: string) {
+  const products = await api.get<{ products: ProductType[] }>({
+    url: `${BASE_URL}/products/search?q=${productName}`,
+    errorDescription: `Failed to fetch products. Product name: ${productName}`,
+  });
+
+  return products;
+}

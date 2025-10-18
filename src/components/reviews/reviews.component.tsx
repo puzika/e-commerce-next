@@ -4,7 +4,6 @@ import Review from '../review/review.componen';
 import Button from '../button/button.component';
 import TextField from '../text-field/text-field.component';
 import styles from './reviews.module.scss';
-import sharedStyles from '@/shared-styles/reviews.module.scss';
 
 type ReviewsProps = {
   reviews: ReviewType[],
@@ -19,25 +18,25 @@ export default function Reviews({ reviews, rating }: ReviewsProps) {
   }
 
   return (
-    <section className={sharedStyles.reviewsSection}>
-      <div className={sharedStyles.header}>
-        <h2 className={sharedStyles.heading}>Reviews</h2>
-        <div className={sharedStyles.stats}>
-          <div className={sharedStyles.statsOverall}>
+    <section className={styles.reviewsSection}>
+      <div className={styles.header}>
+        <h2 className={styles.heading}>Reviews</h2>
+        <div className={styles.stats}>
+          <div className={styles.statsOverall}>
             <strong className={styles.rating}>{rating.toFixed(1)}</strong>
             <Stars rating={rating} />
             <p>{reviews.length} ratings</p>
           </div>
-          <div className={sharedStyles.separator}></div>
-          <div className={sharedStyles.statsVisual}>
+          <div className={styles.separator}></div>
+          <div className={styles.statsVisual}>
             {
               scores.map((score, idx) => (
                 <div
                 key={crypto.randomUUID()}
-                className={sharedStyles.ratingItem}
+                className={styles.ratingItem}
                 >
                   <div 
-                    className={sharedStyles.ratingBar}
+                    className={styles.ratingBar}
                     style={{
                       backgroundImage: `
                         linear-gradient(
@@ -59,8 +58,8 @@ export default function Reviews({ reviews, rating }: ReviewsProps) {
           </div>
         </div>
       </div>
-      <form className={sharedStyles.form} >
-        <div className={sharedStyles.textarea}>
+      <form className={styles.form} >
+        <div className={styles.textarea}>
           <TextField 
             fieldType="textarea"
             name="review"

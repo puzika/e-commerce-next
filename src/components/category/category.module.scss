@@ -3,6 +3,14 @@
 .header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 6rem;
+}
+
+.headerSkeleton {
+  height: 4rem;
+  width: 20rem;
+  border-radius: 10rem;
+  background-color: colors.$clr-semi-transparent;
 }
 
 .title {

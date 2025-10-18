@@ -1,6 +1,19 @@
 @use "@/colors";
 @use "@/variables";
 
+.review {
+  padding: 2rem 0;
+  border-bottom: variables.$separating-border;
+  border-radius: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .name {
   font-weight: bold;
 }
@@ -13,4 +26,42 @@
 
 .rating {
   font-weight: bold;
+}
+
+//REVIEW SKELETON
+
+.header.headerSkeleton,
+.comment.commentSkeleton {
+  background-color: transparent;
+}
+
+.nameSkeleton {
+  width: 15rem;
+  height: 2.2rem;
+}
+
+.dateSkeleton {
+  width: 10rem;
+  height: 1.8rem;
+  margin-right: auto;
+}
+
+.commentSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ratingSkeleton {
+  height: 2.5rem;
+  width: 3rem;
+}
+
+.lineLongSkeleton {
+  width: 100%;
+}
+
+.lineShortSkeleton {
+  width: 50%;
+  min-width: 20rem;
 }

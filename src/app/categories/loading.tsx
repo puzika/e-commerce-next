@@ -1,11 +1,11 @@
-import CategorySkeleton from "@/components/category/category-skeleton.component"
+import ProductsBlockSkeleton from "@/components/products/products-block-skeleton.component"
 
 export default function CategoriesLoading() {
   return (
     <>
-      <CategorySkeleton />
-      <CategorySkeleton />
-      <CategorySkeleton />
+      <ProductsBlockSkeleton />
+      <ProductsBlockSkeleton />
+      <ProductsBlockSkeleton />
     </>
   )
 }

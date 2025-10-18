@@ -1,5 +1,6 @@
 import { RequestError } from "@/lib/definitions";
 import { getProductsByName } from "@/lib/data";
+import ProductsBlock from "@/components/products/products-block.component";
 
 type SearchPageProps = {
   searchParams: Promise<{ productName: string }>
@@ -19,6 +20,6 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   } 
 
   return (
-    <></>
+    <ProductsBlock productName={productName} products={products} complete={true} />
   )
 }

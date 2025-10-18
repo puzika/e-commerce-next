@@ -17,9 +17,15 @@ function BestSellingSkeleton() {
   )
 }
 
-export default function BestSellingSection() {
-  const productsPromise = getProducts(4);
+async function Products() {
+  const { products } = await getProducts(4);
 
+  return (
+    <CardGroup products={products} />
+  )
+}
+
+export default function BestSellingSection() {
   return (
     <Section 
       title="This month"
@@ -29,7 +35,7 @@ export default function BestSellingSection() {
       }
     >
       <Suspense fallback={<BestSellingSkeleton />}>
-        <CardGroup productsPromise={productsPromise} />
+        <Products />
       </Suspense>
     </Section>
   )

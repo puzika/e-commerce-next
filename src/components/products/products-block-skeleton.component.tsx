@@ -1,8 +1,12 @@
 import CardGroupSkeleton from '../card-group/card-group-skeleton.component';
 import commonSkeletonStyles from '@/skeleton.module.scss';
-import styles from './category.module.scss';
+import styles from './products-block.module.scss';
 
-export default function CategorySkeleton() {
+type ProductsBlockSkeletonProps = {
+  cardCnt?: number,
+}
+
+export default function ProductsBlockSkeleton({ cardCnt }: ProductsBlockSkeletonProps) {
   return (
     <div>
       <div className={`
@@ -10,7 +14,7 @@ export default function CategorySkeleton() {
         ${styles.headerSkeleton} 
         ${commonSkeletonStyles.skeleton}`
       }></div>
-      <CardGroupSkeleton cardCnt={4} />
+      <CardGroupSkeleton cardCnt={cardCnt ?? 4} />
     </div>
   )
 }

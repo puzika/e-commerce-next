@@ -3,12 +3,10 @@ import Card from "../card/card.component";
 import styles from './card-group.module.scss';
 
 type CardGroupProps = {
-  productsPromise: Promise<{ products: ProductType[]}>,
+  products: ProductType[],
 }
 
-export default async function CardGroup({ productsPromise }: CardGroupProps) {
-  const { products } = await productsPromise;
-
+export default async function CardGroup({ products }: CardGroupProps) {
   return (
     <div className={styles.cards}>
         {

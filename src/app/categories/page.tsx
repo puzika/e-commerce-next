@@ -1,5 +1,13 @@
-import Category from "@/components/category/category.component"
-import { getCategoryList } from "@/lib/data"
+import ProductsBlock from "@/components/products/products-block.component";
+import { getCategoryList, getCategory } from "@/lib/data"
+
+async function Category({ category }: { category: string }) {
+  const { products } = await getCategory(category);
+
+  return (
+    <ProductsBlock productName={category} products={products} />
+  )
+}
 
 export default async function CategoriesPage() {
   const categories = await getCategoryList();

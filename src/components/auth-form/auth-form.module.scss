@@ -6,7 +6,8 @@
   flex-direction: column;
   gap: 4rem;
 
-  & > input {
+  & input[type="text"] {
+    width: 100%;
     font-size: inherit;
     color: inherit;
     padding: .8rem .2rem;

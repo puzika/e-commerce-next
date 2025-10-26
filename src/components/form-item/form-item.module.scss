@@ -1,0 +1,12 @@
+@use "@/colors";
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.error {
+  font-size: 1.6rem;
+  color: colors.$clr-primary;
+}

@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "firebase": "^12.4.0",
     "next": "15.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-icons": "^5.5.0",
-    "sass": "^1.90.0"
+    "sass": "^1.90.0",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

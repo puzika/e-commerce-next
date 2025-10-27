@@ -47,9 +47,9 @@ export type RequestError = {
   description?: string,
 }
 
-export type AuthenticationResult = {
-  message: string,
+export type FirebaseActionResult = {
   success: boolean,
+  message?: string,
 }
 
 export const SignupSchema = z.object({
@@ -57,7 +57,7 @@ export const SignupSchema = z.object({
   email: z.email().trim(),
   password: z.string().trim()
     .min(6, { message: "Password must be at least 6 characters long" })
-    .max(20, { message: "Password can't be longer than 20 characters" })
+    .max(30, { message: "Password can't be longer than 20 characters" })
     .regex(/[a-z]/, { message: "Password must contain at least one lowercase letter" })
     .regex(/[A-Z]/, { message: "Password must contain at least one uppercase letter "})
     .regex(/[0-9]/, { message: "Password must contain at least one number "})

@@ -1,9 +1,14 @@
-import { FirebaseError } from "firebase/app";
-import { initializeApp } from "firebase/app";
+import { FirebaseError, initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { 
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc, 
+  collection,
+} from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import type { AuthenticationResult } from "./definitions";
+import type { FirebaseActionResult } from "./definitions";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -18,7 +23,10 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
-export async function createUser(email: string, password: string): Promise<AuthenticationResult> {
+export async function createUser(
+  email: string, 
+  password: string
+): Promise<FirebaseActionResult & { emailExists?: boolean }> {
   try {
     await createUserWithEmailAndPassword(auth, email, password);
 
@@ -27,9 +35,10 @@ export async function createUser(email: string, password: string): Promise<Authe
       success: true,
     }
   } catch (error) {
-    if (error instanceof FirebaseError) {
+    if (error instanceof FirebaseError && error.code === 'auth/email-already-in-use') {
       return {
-        message: `Failed to create new user. ${error.message}`,
+        emailExists: true,
+        message: "Email already exists",
         success: false,
       }
     }
@@ -37,6 +46,55 @@ export async function createUser(email: string, password: string): Promise<Authe
     return {
       message: "Failed to create new user. Cause unknown",
       success: false,
+    }
+  }
+}
+
+export async function usernameExists(name: string): Promise<FirebaseActionResult & { exists?: boolean }> {
+  const docRef = doc(db, "users", name);
+  
+  try {
+    const snapshot = await getDoc(docRef);
+
+    return {
+      success: true,
+      exists: snapshot.exists(),
+    }
+  } catch (error) {
+    if (error instanceof FirebaseError) {
+      return {
+        success: false,
+        message: error.code,
+      }
+    }
+
+    return {
+      success: false,
+      message: "Failed to check if user exists. Cause unknown",
+    }
+  }
+}
+
+export async function addUserToDb(name: string, email: string, password: string): Promise<FirebaseActionResult> {
+  try {
+    const docRef = doc(db, "users", name);
+    await setDoc(docRef, { name, email, password});
+
+    return {
+      success: true,
+      message: "User successfully added to database",
+    }
+  } catch (error) {
+    if (error instanceof FirebaseError) {
+      return {
+        success: false,
+        message: error.code,
+      }
+    }
+
+    return {
+      success: false,
+      message: "Failed to add user to database. Cause unknown",
     }
   }
 }

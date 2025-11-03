@@ -52,7 +52,7 @@ export type FirebaseActionResult = {
   message?: string,
 }
 
-export const SignupSchema = z.object({
+export const SignUpSchema = z.object({
   name: z.string().trim().min(1, { message: "Name must be provided" }),
   email: z.email().trim(),
   password: z.string().trim()
@@ -64,15 +64,38 @@ export const SignupSchema = z.object({
     .regex(/[^a-zA-Z0-9]/, { message: "Password must contain at least one special character" }), 
 });
 
-export type SignupFormType = z.infer<typeof SignupSchema>;
+export type SignUpFormType = z.infer<typeof SignUpSchema>;
 
-export type SignupFormState = {
+export type SignUpFormState = {
   errors?: {
     name?: string[],
     email?: string[],
     password?: string[],
   },
   message?: string,
-  values?: SignupFormType,
+  success?: boolean,
+  values?: SignUpFormType,
 };
 
+export const SignInSchema = z.object({
+  email: z.email().trim(),
+  password: z.string().trim()
+    .min(6, { message: "Password must be at least 6 characters long" })
+    .max(30, { message: "Password can't be longer than 20 characters" })
+    .regex(/[a-z]/, { message: "Password must contain at least one lowercase letter" })
+    .regex(/[A-Z]/, { message: "Password must contain at least one uppercase letter "})
+    .regex(/[0-9]/, { message: "Password must contain at least one number "})
+    .regex(/[^a-zA-Z0-9]/, { message: "Password must contain at least one special character" }), 
+});
+
+export type SignInFormType = z.infer<typeof SignInSchema>;
+
+export type SignInFormState = {
+  errors?: {
+    email?: string[],
+    password?: string[],
+  },
+  message?: string,
+  success?: boolean,
+  values?: SignInFormType,
+}

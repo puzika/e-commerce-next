@@ -1,3 +1,6 @@
+'use client';
+
+import useAuthState from '@/lib/auth-state-observe';
 import Image from 'next/image';
 import Logo from 'public/logo.svg';
 import Link from 'next/link';
@@ -5,13 +8,18 @@ import CustomLink from '../custom-link/custom-link.component';
 import Search from '../search/search.component';
 import Favorite from '../favorite/favorite.component';
 import Cart from '../cart/cart,component';
+import { HOME_ROUTE, CONTACTS_ROUTE, SIGN_UP_ROUTE, ABOUT_ROUTE } from '@/lib/constants';
 import styles from './navbar.module.scss';
 
 export default function Navbar() {
+  const user = useAuthState();
+
+  console.log(user);
+
   return (
     <nav className={styles.navbar}>
       <h1>
-        <Link className={styles.logo} href={'/'}>
+        <Link className={styles.logo} href={HOME_ROUTE}>
           <Image 
             src={Logo} 
             alt={'Exclusive: All in one commerce platform'}
@@ -21,10 +29,10 @@ export default function Navbar() {
         </Link>
       </h1>
       <ul className={styles.list}>
-        <li className={styles.item}><CustomLink title={'Home'} href="/" /></li>
-        <li className={styles.item}><CustomLink title={'Contact'} href="/contact" /></li>
-        <li className={styles.item}><CustomLink title={'About'} href="/about" /></li>
-        <li className={styles.item}><CustomLink title={'Sign up'} href="/sign-up" /></li>
+        <li className={styles.item}><CustomLink title={'Home'} href={HOME_ROUTE} /></li>
+        <li className={styles.item}><CustomLink title={'Contacts'} href={CONTACTS_ROUTE} /></li>
+        <li className={styles.item}><CustomLink title={'About'} href={ABOUT_ROUTE} /></li>
+        <li className={styles.item}><CustomLink title={'Sign up'} href={SIGN_UP_ROUTE} /></li>
       </ul>
       <div className={styles.right}>
         <Search name="productName" placeholder='What are you looking for?' />

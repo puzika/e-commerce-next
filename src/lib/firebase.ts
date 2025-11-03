@@ -1,13 +1,15 @@
-import { FirebaseError, initializeApp } from "firebase/app";
+import { FirebaseError, initializeApp, getApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { 
   getFirestore,
   doc,
   getDoc,
   setDoc, 
-  collection,
 } from "firebase/firestore";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { 
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import type { FirebaseActionResult } from "./definitions";
 
 const firebaseConfig = {
@@ -19,11 +21,11 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_API_ID,
 };
 
-export const app = initializeApp(firebaseConfig);
+export const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
-export async function createUser(
+export async function signUpFirebase(
   email: string, 
   password: string
 ): Promise<FirebaseActionResult & { emailExists?: boolean }> {
@@ -75,10 +77,10 @@ export async function usernameExists(name: string): Promise<FirebaseActionResult
   }
 }
 
-export async function addUserToDb(name: string, email: string, password: string): Promise<FirebaseActionResult> {
+export async function addUserToDb(name: string, email: string): Promise<FirebaseActionResult> {
   try {
     const docRef = doc(db, "users", name);
-    await setDoc(docRef, { name, email, password});
+    await setDoc(docRef, { name, email});
 
     return {
       success: true,
@@ -95,6 +97,27 @@ export async function addUserToDb(name: string, email: string, password: string)
     return {
       success: false,
       message: "Failed to add user to database. Cause unknown",
+    }
+  }
+}
+
+export async function signInFirebase(email: string, password: string): Promise<FirebaseActionResult> {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+
+    return { success: true, message: "Sign-in successful" };
+  } catch (error) {
+    console.log(error);
+    if (error instanceof FirebaseError) {
+      return {
+        success: false,
+        message: error.code,
+      }
+    }
+
+    return {
+      success: false,
+      message: "Sign-in failed. Cause unknown",
     }
   }
 }

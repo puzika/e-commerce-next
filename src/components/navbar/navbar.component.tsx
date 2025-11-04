@@ -24,7 +24,7 @@ import styles from './navbar.module.scss';
 
 export default function Navbar() {
   const user = useAuthState();
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLButtonElement | null>(null);
   const [open, setOpen] = useState<boolean>(false);
 
   useEffect(()  => {
@@ -43,11 +43,11 @@ export default function Navbar() {
 
   const account = useMemo(() => (
     <Dropdown
-      ref={ref}
       open={open}
       content={
         <button 
           aria-label='account' 
+          ref={ref}
           className={clsx(styles.iconBtn, styles.iconAccount)}
         >
           <VscAccount />

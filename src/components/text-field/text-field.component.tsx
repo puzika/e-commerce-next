@@ -3,6 +3,7 @@ import styles from './text-field.module.scss';
 
 type TextFieldProps = {
   fieldType: 'textarea' | 'input',
+  id?: string,
   name?: string,
   inputType?: HTMLInputTypeAttribute,
   placeholder?: string,

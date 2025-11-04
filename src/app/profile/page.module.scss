@@ -1,0 +1,46 @@
+@use "@/variables";
+@use "@/colors";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: variables.$primary-vertical-margin auto;
+  width: 80%;
+  padding: 3.5rem 8rem;
+  border-radius: .5rem;
+  box-shadow: variables.$primary-shadow;
+
+}
+
+.heading {
+  color: colors.$clr-primary;
+}
+
+.personal {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 5rem;
+  row-gap: 2.5rem;
+  border: none;
+}
+
+.label,
+.legend {
+  display: block;
+  margin: 0 0 1rem .5rem;
+}
+
+.password {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border: none;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3rem;
+}

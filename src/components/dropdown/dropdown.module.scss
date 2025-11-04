@@ -1,0 +1,75 @@
+@use "@/colors";
+
+.dropdown {
+  position: relative;
+
+  &:hover {
+    color: colors.$clr-primary;
+  }
+}
+
+.dropdownActive {
+  color: colors.$clr-primary;
+
+  .dropdownList {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.dropdownList {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  translate: -50% 1.5rem;
+  min-width: 20rem;
+  background-color: rgba(colors.$clr-secondary, .4);
+  backdrop-filter: blur(2px);
+  border-radius: .5rem;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .2s;
+
+  li {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: .5rem;
+      left: 50%;
+      translate: -50% 0;
+      height: .2rem;
+      width: 0;
+      background-color: colors.$clr-base;
+      transition: width .2s;
+    }
+
+    &:hover::after {
+      width: calc(100% - 5rem);
+    }
+  }
+
+  li > a:link,
+  li > a:visited {
+    color: colors.$clr-base;
+  }
+
+  li > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: transparent;
+    width: 100%;
+    color: colors.$clr-base;
+    font-size: inherit;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    transition: color .2s;
+  }
+}

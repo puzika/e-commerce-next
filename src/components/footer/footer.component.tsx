@@ -1,4 +1,6 @@
-import styles from './footer.module.scss';
+'use client';
+
+import useAuthState from '@/lib/auth-state-observe';
 import Logo from 'public/logo-white.svg';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,10 +11,14 @@ import {
   CONTACTS_ROUTE, 
   ABOUT_ROUTE, 
   SIGN_UP_ROUTE, 
-  CATEGORIES_ROUTE 
+  CATEGORIES_ROUTE,
+  PROFILE_ROUTE
 } from '@/lib/constants';
+import styles from './footer.module.scss';
 
 export default function Footer() {
+  const user = useAuthState();
+
   return (
     <footer className={styles.footer}>
       <Link className={styles.logo} href={HOME_ROUTE}>
@@ -27,8 +33,12 @@ export default function Footer() {
           <li><CustomLink href={HOME_ROUTE} title={'Home'} /></li>
           <li><CustomLink href={CONTACTS_ROUTE} title={'Contacts'} /></li>
           <li><CustomLink href={ABOUT_ROUTE} title={'About'} /></li>
-          <li><CustomLink href={SIGN_UP_ROUTE} title={'Sign up'} /></li>
           <li><CustomLink href={CATEGORIES_ROUTE} title={'Categories'} /></li>
+          {
+            user ?
+              <li className={styles.item}><CustomLink title={'Account'} href={PROFILE_ROUTE} /></li> :
+              <li className={styles.item}><CustomLink title={'Sign up'} href={SIGN_UP_ROUTE} /></li>
+          }
         </ul>
       </nav>
       <SocialMedia />

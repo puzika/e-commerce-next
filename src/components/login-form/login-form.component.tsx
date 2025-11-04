@@ -4,11 +4,12 @@ import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "@/lib/authentication";
 import type { SignInFormState } from "@/lib/definitions";
+import Link from "next/link";
 import AuthForm from "@/components/auth-form/auth-form.component";
 import Button from "@/components/button/button.component";
 import CustomLink from "@/components/custom-link/custom-link.component";
 import FormItem from "../form-item/form-item.component";
-import { HOME_ROUTE } from "@/lib/constants";
+import { HOME_ROUTE, SIGN_UP_ROUTE } from "@/lib/constants";
 import styles from './login-form.module.scss';
 
 export default function LoginForm() {
@@ -62,6 +63,10 @@ export default function LoginForm() {
           { pending ? "Submitting..." : "Log in" }
         </Button>
         <CustomLink title="Forgot Password?" href="password-reset" />
+      </div>
+      <div className={styles.alternatives}>
+        <p>Already have an account?</p>
+        <Link className={styles.alternative} href={SIGN_UP_ROUTE}>Sign up</Link>
       </div>
     </AuthForm>
   )

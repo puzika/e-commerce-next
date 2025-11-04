@@ -6,8 +6,12 @@ export default function useAuthState() {
   const [user, setUser] = useState<User | null>(null);
   
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, function (authUser) {
-      setUser(authUser);
+    const unsubscribe = onAuthStateChanged(auth, authUser => {
+      if (
+        !user ||
+        !authUser || 
+        user.uid !== authUser.uid
+      ) setUser(authUser);
     });
     
     return () => unsubscribe();

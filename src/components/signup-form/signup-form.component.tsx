@@ -73,7 +73,7 @@ export default function SignUp() {
         <GoogleBtn title="Sign up with Google" />
       </div>
       <div className={styles.alternatives}>
-        <p>Already have an account?</p>
+        <p>Don't have an account yet?</p>
         <Link className={styles.alternative} href="login">Log in</Link>
       </div>
     </AuthForm>

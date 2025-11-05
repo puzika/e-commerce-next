@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState, useMemo } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import useAuthState from '@/lib/auth-state-observe';
 import Image from 'next/image';
 import Logo from 'public/logo.svg';
@@ -16,9 +16,11 @@ import {
   HOME_ROUTE, 
   CONTACTS_ROUTE, 
   SIGN_UP_ROUTE, 
+  SIGN_IN_ROUTE,
   ABOUT_ROUTE, 
   PROFILE_ROUTE
 } from '@/lib/constants';
+import { signOutFirebase } from '@/lib/firebase';
 import clsx from 'clsx';
 import styles from './navbar.module.scss';
 
@@ -41,28 +43,17 @@ export default function Navbar() {
     return () => document.removeEventListener('click', handleClick);
   }, []);
 
-  const account = useMemo(() => (
-    <Dropdown
-      open={open}
-      content={
-        <button 
-          aria-label='account' 
-          ref={ref}
-          className={clsx(styles.iconBtn, styles.iconAccount)}
-        >
-          <VscAccount />
-        </button>
-      }
-    >
+  const signedInProfileItems = (
+    <>
       <li><Link href={PROFILE_ROUTE}>Edit profile</Link></li>
       <li>
-        <button>
+        <button onClick={signOutFirebase}>
           <GoSignOut />
           <span>Sign out</span>
         </button>
       </li>
-    </Dropdown>
-  ), [open]);
+    </>
+  );
 
   return (
     <nav className={styles.navbar}>
@@ -90,7 +81,22 @@ export default function Navbar() {
         <Search name="productName" placeholder='What are you looking for?' />
         <button aria-label='favorites' className={styles.iconBtn}><Favorite size={3} /></button>
         <button aria-label='cart' className={styles.iconBtn}><Cart size={3} /></button>
-        { user && account }
+        <Dropdown
+          open={open}
+          content={
+            <button 
+              aria-label='account' 
+              ref={ref}
+              className={clsx(styles.iconBtn, styles.iconAccount)}
+            >
+              <VscAccount />
+            </button>
+          }
+        >
+          <li><Link href={SIGN_UP_ROUTE}>Sign up</Link></li>
+          <li><Link href={SIGN_IN_ROUTE}>Sign in</Link></li>
+          { user && signedInProfileItems }
+        </Dropdown>
       </div>
     </nav>
   )

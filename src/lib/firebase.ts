@@ -9,6 +9,7 @@ import {
 import { 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut
 } from "firebase/auth";
 import type { FirebaseActionResult } from "./definitions";
 
@@ -107,7 +108,6 @@ export async function signInFirebase(email: string, password: string): Promise<F
 
     return { success: true, message: "Sign-in successful" };
   } catch (error) {
-    console.log(error);
     if (error instanceof FirebaseError) {
       return {
         success: false,
@@ -118,6 +118,29 @@ export async function signInFirebase(email: string, password: string): Promise<F
     return {
       success: false,
       message: "Sign-in failed. Cause unknown",
+    }
+  }
+}
+
+export async function signOutFirebase(): Promise<FirebaseActionResult> {
+  try {
+    await signOut(auth);
+
+    return { 
+      success: true,
+      message: "Sign-out successful",
+    }
+  } catch (error) {
+    if (error instanceof FirebaseError) {
+      return {
+        success: false,
+        message: error.code,
+      }
+    }
+
+    return {
+      success: false,
+      message: "Sign-in failed. Cause unknown"
     }
   }
 }

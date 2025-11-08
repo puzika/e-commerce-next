@@ -9,9 +9,14 @@ import {
 import { 
   signInFirebase,
   signUpFirebase,
+  signOutFirebase,
   usernameExists,
-  addUserToDb
+  addUserToDb,
 } from "./firebase";
+import { 
+  createSession,
+  removeSession
+} from "./session";
 
 export async function signIn(formData: FormData): Promise<SignInFormState> {
   const formObj = Object.fromEntries(formData);
@@ -32,6 +37,8 @@ export async function signIn(formData: FormData): Promise<SignInFormState> {
   if (!signInResult.success) {
     return { message: "Either password or email is incorrect" };
   }
+
+  await createSession({ user: signInResult.userId });
 
   return  { message: "Sign-in successful", success: true };
 }
@@ -72,5 +79,12 @@ export async function signUp(formData: FormData): Promise<SignUpFormState> {
 
   if (!addUserToDbResult.success) return { message: addUserToDbResult?.message };
 
+  await createSession({ user: createUserResult.userId });
+
   return { message: "Sign-up successful!", success: true };
+}
+
+export async function signOut() {
+  await signOutFirebase();
+  await removeSession();
 }

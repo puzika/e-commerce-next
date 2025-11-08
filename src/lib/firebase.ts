@@ -29,13 +29,14 @@ export const db = getFirestore(app);
 export async function signUpFirebase(
   email: string, 
   password: string
-): Promise<FirebaseActionResult & { emailExists?: boolean }> {
+): Promise<FirebaseActionResult & { emailExists?: boolean, userId?: string }> {
   try {
-    await createUserWithEmailAndPassword(auth, email, password);
+    const credentials = await createUserWithEmailAndPassword(auth, email, password);
 
     return {
       message: "New user created",
       success: true,
+      userId: credentials.user.uid,
     }
   } catch (error) {
     if (error instanceof FirebaseError && error.code === 'auth/email-already-in-use') {
@@ -102,11 +103,18 @@ export async function addUserToDb(name: string, email: string): Promise<Firebase
   }
 }
 
-export async function signInFirebase(email: string, password: string): Promise<FirebaseActionResult> {
+export async function signInFirebase(
+  email: string, 
+  password: string
+): Promise<FirebaseActionResult & { userId?: string }> {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    const credentials = await signInWithEmailAndPassword(auth, email, password);
 
-    return { success: true, message: "Sign-in successful" };
+    return { 
+      success: true, 
+      message: "Sign-in successful",
+      userId: credentials.user.uid,
+    };
   } catch (error) {
     if (error instanceof FirebaseError) {
       return {
@@ -140,7 +148,7 @@ export async function signOutFirebase(): Promise<FirebaseActionResult> {
 
     return {
       success: false,
-      message: "Sign-in failed. Cause unknown"
+      message: "Sign-out failed. Cause unknown"
     }
   }
 }

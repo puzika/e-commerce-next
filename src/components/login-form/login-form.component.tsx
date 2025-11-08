@@ -10,6 +10,7 @@ import Button from "@/components/button/button.component";
 import CustomLink from "@/components/custom-link/custom-link.component";
 import FormItem from "../form-item/form-item.component";
 import { HOME_ROUTE, SIGN_UP_ROUTE } from "@/lib/constants";
+import { createSession } from "@/lib/session";
 import styles from './login-form.module.scss';
 
 export default function LoginForm() {
@@ -27,10 +28,10 @@ export default function LoginForm() {
 
     const newState = await signIn(formData);
     
-    if (newState.success) {
-      router.push(HOME_ROUTE);
-      router.refresh();
-    }
+    // if (newState.success) {
+    //   router.push(HOME_ROUTE);
+    //   router.refresh();
+    // }
     
     setFormState(newState);
     setPending(false);

@@ -18,14 +18,18 @@ import {
   SIGN_UP_ROUTE, 
   SIGN_IN_ROUTE,
   ABOUT_ROUTE, 
-  PROFILE_ROUTE
+  PROFILE_ROUTE,
+  SESSION_COOKIE_NAME
 } from '@/lib/constants';
-import { signOutFirebase } from '@/lib/firebase';
+import { signOut } from '@/lib/authentication';
+import { updateSession } from '@/lib/session';
+import { useCookies } from 'next-client-cookies';
 import clsx from 'clsx';
 import styles from './navbar.module.scss';
 
 export default function Navbar() {
-  const user = useAuthState();
+  const cookies = useCookies();
+  const userSignedIn = !!cookies.get(SESSION_COOKIE_NAME);
   const ref = useRef<HTMLButtonElement | null>(null);
   const [open, setOpen] = useState<boolean>(false);
 
@@ -40,6 +44,9 @@ export default function Navbar() {
 
     document.addEventListener('click', handleClick);
 
+    if (!userSignedIn) signOut();
+    else updateSession();
+
     return () => document.removeEventListener('click', handleClick);
   }, []);
 
@@ -47,7 +54,7 @@ export default function Navbar() {
     <>
       <li><Link href={PROFILE_ROUTE}>Edit profile</Link></li>
       <li>
-        <button onClick={signOutFirebase}>
+        <button onClick={signOut}>
           <GoSignOut />
           <span>Sign out</span>
         </button>
@@ -72,7 +79,7 @@ export default function Navbar() {
         <li className={styles.item}><CustomLink title={'Contacts'} href={CONTACTS_ROUTE} /></li>
         <li className={styles.item}><CustomLink title={'About'} href={ABOUT_ROUTE} /></li>
         {
-          user ?
+          userSignedIn ?
             <li className={styles.item}><CustomLink title={'Account'} href={PROFILE_ROUTE} /></li> :
             <li className={styles.item}><CustomLink title={'Sign up'} href={SIGN_UP_ROUTE} /></li>
         }
@@ -95,7 +102,7 @@ export default function Navbar() {
         >
           <li><Link href={SIGN_UP_ROUTE}>Sign up</Link></li>
           <li><Link href={SIGN_IN_ROUTE}>Sign in</Link></li>
-          { user && signedInProfileItems }
+          { userSignedIn && signedInProfileItems }
         </Dropdown>
       </div>
     </nav>

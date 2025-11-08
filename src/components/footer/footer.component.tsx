@@ -1,6 +1,5 @@
 'use client';
 
-import useAuthState from '@/lib/auth-state-observe';
 import Logo from 'public/logo-white.svg';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -12,12 +11,15 @@ import {
   ABOUT_ROUTE, 
   SIGN_UP_ROUTE, 
   CATEGORIES_ROUTE,
-  PROFILE_ROUTE
+  PROFILE_ROUTE,
+  SESSION_COOKIE_NAME
 } from '@/lib/constants';
+import { useCookies } from 'next-client-cookies';
 import styles from './footer.module.scss';
 
 export default function Footer() {
-  const user = useAuthState();
+  const cookies = useCookies();
+  const userSignedIn = !!cookies.get(SESSION_COOKIE_NAME);
 
   return (
     <footer className={styles.footer}>
@@ -35,7 +37,7 @@ export default function Footer() {
           <li><CustomLink href={ABOUT_ROUTE} title={'About'} /></li>
           <li><CustomLink href={CATEGORIES_ROUTE} title={'Categories'} /></li>
           {
-            user ?
+            userSignedIn ?
               <li className={styles.item}><CustomLink title={'Account'} href={PROFILE_ROUTE} /></li> :
               <li className={styles.item}><CustomLink title={'Sign up'} href={SIGN_UP_ROUTE} /></li>
           }

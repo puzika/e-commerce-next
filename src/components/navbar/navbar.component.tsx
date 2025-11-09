@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import useAuthState from '@/lib/auth-state-observe';
 import Image from 'next/image';
 import Logo from 'public/logo.svg';
@@ -28,7 +29,9 @@ import clsx from 'clsx';
 import styles from './navbar.module.scss';
 
 export default function Navbar() {
+  const router = useRouter();
   const cookies = useCookies();
+  const user = useAuthState();
   const userSignedIn = !!cookies.get(SESSION_COOKIE_NAME);
   const ref = useRef<HTMLButtonElement | null>(null);
   const [open, setOpen] = useState<boolean>(false);
@@ -44,17 +47,22 @@ export default function Navbar() {
 
     document.addEventListener('click', handleClick);
 
-    if (!userSignedIn) signOut();
+    if (user && !userSignedIn) signOut();
     else updateSession();
 
     return () => document.removeEventListener('click', handleClick);
   }, []);
 
+  const handleSignOut = async () => {
+    await signOut();
+    router.push('/');
+  }
+
   const signedInProfileItems = (
     <>
       <li><Link href={PROFILE_ROUTE}>Edit profile</Link></li>
       <li>
-        <button onClick={signOut}>
+        <button onClick={handleSignOut}>
           <GoSignOut />
           <span>Sign out</span>
         </button>

@@ -60,6 +60,4 @@ export async function updateSession() {
 
 export async function removeSession() {
   (await cookies()).delete(SESSION_COOKIE_NAME);
-
-  redirect('/');
 }
